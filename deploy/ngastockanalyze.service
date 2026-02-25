@@ -1,0 +1,17 @@
+[Unit]
+Description=A股多空情绪分析服务
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/NGAStockAnalyze
+Environment="PATH=/opt/NGAStockAnalyze/venv/bin"
+ExecStart=/opt/NGAStockAnalyze/venv/bin/python /opt/NGAStockAnalyze/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/NGAStockAnalyze/logs/service.log
+StandardError=append:/opt/NGAStockAnalyze/logs/error.log
+
+[Install]
+WantedBy=multi-user.target

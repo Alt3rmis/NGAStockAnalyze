@@ -1,0 +1,17 @@
+[Unit]
+Description=GitHub Webhook Deployment Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/NGAStockAnalyze
+Environment="WEBHOOK_SECRET=your_secret_here"
+ExecStart=/opt/NGAStockAnalyze/venv/bin/python /opt/NGAStockAnalyze/deploy/webhook_server.py --port 9000
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/NGAStockAnalyze/logs/webhook.log
+StandardError=append:/opt/NGAStockAnalyze/logs/webhook_error.log
+
+[Install]
+WantedBy=multi-user.target
