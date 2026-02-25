@@ -8,10 +8,10 @@ set -e
 
 # ==================== 配置 ====================
 PROJECT_NAME="NGAStockAnalyze"
-PROJECT_DIR="/opt/${PROJECT_NAME}"
+PROJECT_DIR="${HOME}/${PROJECT_NAME}"
 VENV_DIR="${PROJECT_DIR}/venv"
 LOG_DIR="${PROJECT_DIR}/logs"
-BACKUP_DIR="/opt/backups/${PROJECT_NAME}"
+BACKUP_DIR="${HOME}/backups/${PROJECT_NAME}"
 GIT_REPO="https://github.com/Alt3rmis/NGAStockAnalyze.git"
 BRANCH="main"
 SERVICE_NAME="${PROJECT_NAME}"
