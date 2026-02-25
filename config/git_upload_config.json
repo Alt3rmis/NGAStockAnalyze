@@ -1,0 +1,9 @@
+{
+    "enabled": false,
+    "repo_url": "https://github.com/Alt3rmis/StockAnalyzeResults.git",
+    "branch": "main",
+    "local_path": "temp/StockAnalyzeResults",
+    "commit_author": "StockAnalyzer Bot",
+    "commit_email": "bot@stockanalyzer.local",
+    "commit_message_template": "docs: update market sentiment report for {date}"
+}

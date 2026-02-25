@@ -1,0 +1,33 @@
+{
+    "default_channel": "wechat",
+    "retry_count": 3,
+    "retry_delay": 5,
+    "channels": {
+        "email": {
+            "enabled": false,
+            "smtp_server": "smtp.example.com",
+            "smtp_port": 587,
+            "sender_email": "your_email@example.com",
+            "sender_password": "your_app_password",
+            "receiver_emails": ["receiver@example.com"],
+            "use_tls": true,
+            "retry_count": 3,
+            "retry_delay": 5
+        },
+        "wechat": {
+            "enabled": false,
+            "webhook_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY",
+            "mentioned_list": [],
+            "mentioned_mobile_list": [],
+            "retry_count": 3,
+            "retry_delay": 5
+        },
+        "qq": {
+            "enabled": false,
+            "webhook_url": "http://localhost:5700/send_group_msg",
+            "group_id": null,
+            "retry_count": 3,
+            "retry_delay": 5
+        }
+    }
+}

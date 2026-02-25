@@ -2,14 +2,16 @@
 """
 Market Sentiment Report Scheduler Service
 Executes daily at 20:00 Beijing Time (GMT+8) to generate Markdown reports.
+Automatically sends notifications through configured channels.
 
 Usage:
-    python scheduler_service.py [--test] [--status] [--manual]
+    python scheduler_service.py [--test] [--status] [--manual] [--no-notify]
 
 Options:
     --test       Run a single test execution immediately
     --status     Check the last execution status
     --manual     Trigger manual execution without waiting for schedule
+    --no-notify  Skip sending notifications
 """
 
 import argparse
@@ -20,7 +22,7 @@ import signal
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
@@ -91,7 +93,10 @@ class SchedulerStatus:
             "total_failures": 0,
             "last_error": None,
             "last_report_file": None,
-            "next_scheduled": None
+            "next_scheduled": None,
+            "last_notification_status": None,
+            "notification_enabled": True,
+            "last_git_upload_status": None
         }
     
     def record_start(self) -> None:
@@ -129,10 +134,48 @@ class SchedulerStatus:
 
 
 class ReportGenerator:
-    """Handles the actual report generation"""
+    """Handles the actual report generation, notification, and Git upload"""
     
-    def __init__(self, project_dir: Path):
+    def __init__(self, project_dir: Path, enable_notification: bool = True):
         self.project_dir = project_dir
+        self.enable_notification = enable_notification
+        self._notification_manager = None
+        self._git_upload_manager = None
+    
+    def _get_notification_manager(self):
+        """
+        Lazy load notification manager
+        Returns None if notification is disabled or not configured
+        """
+        if not self.enable_notification:
+            return None
+        
+        if self._notification_manager is None:
+            try:
+                from src.notifier import NotificationManager
+                config_path = self.project_dir / "config" / "notification_config.json"
+                self._notification_manager = NotificationManager(config_path)
+            except Exception as e:
+                logger.warning(f"Failed to initialize notification manager: {e}")
+                return None
+        
+        return self._notification_manager
+    
+    def _get_git_upload_manager(self):
+        """
+        Lazy load Git upload manager
+        Returns None if Git upload is disabled or not configured
+        """
+        if self._git_upload_manager is None:
+            try:
+                from src.git_uploader import GitUploadManager
+                config_path = self.project_dir / "config" / "git_upload_config.json"
+                self._git_upload_manager = GitUploadManager(config_path)
+            except Exception as e:
+                logger.warning(f"Failed to initialize Git upload manager: {e}")
+                return None
+        
+        return self._git_upload_manager
     
     def generate(self) -> Dict[str, Any]:
         """
@@ -144,7 +187,11 @@ class ReportGenerator:
             "report_file": None,
             "error": None,
             "start_time": datetime.now(BEIJING_TZ).isoformat(),
-            "end_time": None
+            "end_time": None,
+            "report_content": None,
+            "notification_results": None,
+            "git_upload_results": None,
+            "analysis_date": None
         }
         
         try:
@@ -158,6 +205,7 @@ class ReportGenerator:
             
             date_str = get_trade_date()
             logger.info(f"Analysis date: {date_str}")
+            result["analysis_date"] = date_str
             
             logger.info("Fetching all data...")
             data = fetch_all_data(date_str)
@@ -181,9 +229,64 @@ class ReportGenerator:
             
             result["success"] = True
             result["report_file"] = file_name
+            result["report_content"] = report_str
             result["end_time"] = datetime.now(BEIJING_TZ).isoformat()
             
             logger.info(f"Report generated successfully: {file_name}")
+            
+            git_manager = self._get_git_upload_manager()
+            if git_manager and git_manager.is_enabled():
+                logger.info("Uploading report to Git repository...")
+                try:
+                    report_path = self.project_dir / "results" / file_name
+                    git_success, git_message = git_manager.upload_report(report_path, date_str)
+                    result["git_upload_results"] = {
+                        "success": git_success,
+                        "message": git_message
+                    }
+                    if git_success:
+                        logger.info(f"Git upload successful: {git_message}")
+                    else:
+                        logger.warning(f"Git upload failed: {git_message}")
+                except Exception as e:
+                    logger.error(f"Failed to upload to Git: {e}")
+                    result["git_upload_results"] = {
+                        "success": False,
+                        "error": str(e)
+                    }
+            else:
+                logger.info("Git upload disabled or not configured")
+                result["git_upload_results"] = {"status": "disabled"}
+            
+            notification_manager = self._get_notification_manager()
+            if notification_manager and notification_manager.is_any_channel_enabled():
+                logger.info("Sending notifications...")
+                try:
+                    from src.notifier import send_daily_notification
+                    notification_results = send_daily_notification(
+                        report_content=report_str,
+                        report_date=date_str,
+                        config_path=self.project_dir / "config" / "notification_config.json"
+                    )
+                    result["notification_results"] = {
+                        channel.value: {
+                            "status": r.status.value,
+                            "message": r.message,
+                            "error": r.error_details
+                        }
+                        for channel, r in notification_results.items()
+                    }
+                    
+                    success_count = sum(1 for r in notification_results.values() if r.status.value == "success")
+                    total_count = len(notification_results)
+                    logger.info(f"Notifications sent: {success_count}/{total_count} successful")
+                    
+                except Exception as e:
+                    logger.error(f"Failed to send notifications: {e}")
+                    result["notification_results"] = {"error": str(e)}
+            else:
+                logger.info("Notifications disabled or no channels configured")
+                result["notification_results"] = {"status": "disabled"}
             
         except Exception as e:
             result["error"] = str(e)
@@ -196,7 +299,7 @@ class ReportGenerator:
 class SchedulerService:
     """Main scheduler service that manages daily report generation"""
     
-    def __init__(self):
+    def __init__(self, enable_notification: bool = True):
         if not APSCHEDULER_AVAILABLE:
             raise ImportError(
                 "APScheduler is not installed. "
@@ -204,9 +307,10 @@ class SchedulerService:
             )
         
         self.status = SchedulerStatus(STATUS_FILE)
-        self.report_generator = ReportGenerator(PROJECT_DIR)
+        self.report_generator = ReportGenerator(PROJECT_DIR, enable_notification)
         self.scheduler = BackgroundScheduler(timezone=BEIJING_TZ)
         self.running = False
+        self.enable_notification = enable_notification
         
         self.scheduler.add_listener(
             self._job_executed_listener,
@@ -224,6 +328,7 @@ class SchedulerService:
         logger.info("=" * 60)
         logger.info("Scheduled report generation started")
         logger.info(f"Beijing Time: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')}")
+        logger.info(f"Notifications: {'Enabled' if self.enable_notification else 'Disabled'}")
         logger.info("=" * 60)
         
         self.status.record_execution_start()
@@ -233,6 +338,12 @@ class SchedulerService:
         if result["success"]:
             self.status.record_success(result["report_file"])
             logger.info(f"Report generation completed: {result['report_file']}")
+            
+            if result.get("git_upload_results"):
+                self._record_git_upload_status(result["git_upload_results"])
+            
+            if result.get("notification_results"):
+                self._record_notification_status(result["notification_results"])
         else:
             self.status.record_failure(result["error"])
             logger.error(f"Report generation failed: {result['error']}")
@@ -242,6 +353,26 @@ class SchedulerService:
         logger.info("=" * 60)
         logger.info("Scheduled report generation finished")
         logger.info("=" * 60)
+    
+    def _record_git_upload_status(self, git_upload_results: Dict[str, Any]) -> None:
+        """Record Git upload status"""
+        try:
+            status = self.status.load()
+            status["last_git_upload_status"] = git_upload_results
+            self.status.save(status)
+            logger.info(f"Git upload status recorded: {git_upload_results}")
+        except Exception as e:
+            logger.error(f"Failed to record Git upload status: {e}")
+    
+    def _record_notification_status(self, notification_results: Dict[str, Any]) -> None:
+        """Record notification delivery status"""
+        try:
+            status = self.status.load()
+            status["last_notification_status"] = notification_results
+            self.status.save(status)
+            logger.info(f"Notification status recorded: {notification_results}")
+        except Exception as e:
+            logger.error(f"Failed to record notification status: {e}")
     
     def _update_next_scheduled(self) -> None:
         jobs = self.scheduler.get_jobs()
@@ -379,6 +510,28 @@ def print_status(status: Dict[str, Any]) -> None:
     print(f"Next Scheduled Run: {status.get('next_scheduled', 'N/A')}")
     print(f"Schedule: Daily at {SCHEDULE_HOUR:02d}:{SCHEDULE_MINUTE:02d} Beijing Time (GMT+8)")
     
+    if status.get('last_git_upload_status'):
+        print("\n--- Last Git Upload Status ---")
+        git_status = status.get('last_git_upload_status')
+        if isinstance(git_status, dict):
+            print(f"  Success: {git_status.get('success', 'N/A')}")
+            if git_status.get('message'):
+                print(f"  Message: {git_status.get('message')}")
+            if git_status.get('error'):
+                print(f"  Error: {git_status.get('error')}")
+    
+    if status.get('last_notification_status'):
+        print("\n--- Last Notification Status ---")
+        notification_status = status.get('last_notification_status')
+        if isinstance(notification_status, dict):
+            for channel, details in notification_status.items():
+                if isinstance(details, dict):
+                    print(f"  {channel}: {details.get('status', 'N/A')}")
+                    if details.get('error'):
+                        print(f"    Error: {details.get('error')}")
+                else:
+                    print(f"  {channel}: {details}")
+    
     print("\n" + "=" * 60)
 
 
@@ -392,6 +545,7 @@ Examples:
     python scheduler_service.py --test       Run a test execution
     python scheduler_service.py --manual     Trigger manual execution
     python scheduler_service.py --status     Check execution status
+    python scheduler_service.py --no-notify  Run without notifications
         """
     )
     
@@ -415,6 +569,11 @@ Examples:
         action='store_true',
         help='Run as daemon (foreground, for systemd)'
     )
+    parser.add_argument(
+        '--no-notify',
+        action='store_true',
+        help='Disable notification sending'
+    )
     
     args = parser.parse_args()
     
@@ -422,8 +581,10 @@ Examples:
         print("Error: APScheduler is required. Install with: pip install apscheduler")
         sys.exit(1)
     
+    enable_notification = not args.no_notify
+    
     if args.test or args.manual:
-        service = SchedulerService()
+        service = SchedulerService(enable_notification=enable_notification)
         result = service.run_manual()
         
         if result.get('last_error') and not args.test:
@@ -433,6 +594,11 @@ Examples:
             if result.get('last_report_file'):
                 print(f"\nExecution completed successfully!")
                 print(f"Report file: {result.get('last_report_file')}")
+                
+                if result.get('last_notification_status'):
+                    print(f"\nNotification Status:")
+                    for channel, details in result.get('last_notification_status', {}).items():
+                        print(f"  {channel}: {details}")
             sys.exit(0)
     
     elif args.status:
@@ -443,7 +609,7 @@ Examples:
         sys.exit(0)
     
     else:
-        service = SchedulerService()
+        service = SchedulerService(enable_notification=enable_notification)
         
         if args.daemon:
             service.run_forever()
