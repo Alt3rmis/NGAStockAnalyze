@@ -1,0 +1,28 @@
+[Unit]
+Description=Market Sentiment Report Scheduler Service
+Documentation=https://github.com/your-repo/ReThink
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/NGAStockAnalyze
+Environment="PYTHONUNBUFFERED=1"
+Environment="TZ=Asia/Shanghai"
+ExecStart=/opt/NGAStockAnalyze/venv/bin/python /opt/NGAStockAnalyze/deploy/scheduler_service.py --daemon
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+TimeoutStartSec=30
+TimeoutStopSec=30
+
+StandardOutput=append:/opt/NGAStockAnalyze/logs/scheduler.log
+StandardError=append:/opt/NGAStockAnalyze/logs/scheduler_error.log
+
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

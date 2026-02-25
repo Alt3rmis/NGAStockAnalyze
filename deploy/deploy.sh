@@ -2,7 +2,7 @@
 
 # A股多空情绪分析工具 - 服务器部署脚本
 # 用法: ./deploy.sh [命令]
-# 命令: install | update | start | stop | restart | status | rollback
+# 命令: install | update | start | stop | restart | status | rollback | scheduler-start | scheduler-stop | scheduler-status
 
 set -e
 
@@ -15,6 +15,7 @@ BACKUP_DIR="/opt/backups/${PROJECT_NAME}"
 GIT_REPO="https://github.com/Alt3rmis/NGAStockAnalyze.git"
 BRANCH="main"
 SERVICE_NAME="${PROJECT_NAME}"
+SCHEDULER_SERVICE_NAME="market-sentiment-scheduler"
 
 # 颜色输出
 RED='\033[0;31m'
@@ -177,6 +178,68 @@ rollback() {
     restart_service
 }
 
+# ==================== 调度器服务 ====================
+start_scheduler() {
+    log_info "启动调度器服务..."
+    
+    if [ -f "/etc/systemd/system/${SCHEDULER_SERVICE_NAME}.service" ]; then
+        systemctl start "${SCHEDULER_SERVICE_NAME}"
+        systemctl enable "${SCHEDULER_SERVICE_NAME}"
+        log_info "调度器服务已启动"
+    else
+        log_error "调度器服务未安装，请先运行 ./deploy.sh install-scheduler"
+        exit 1
+    fi
+}
+
+stop_scheduler() {
+    log_info "停止调度器服务..."
+    
+    if [ -f "/etc/systemd/system/${SCHEDULER_SERVICE_NAME}.service" ]; then
+        systemctl stop "${SCHEDULER_SERVICE_NAME}"
+        log_info "调度器服务已停止"
+    else
+        log_warn "调度器服务未安装"
+    fi
+}
+
+scheduler_status() {
+    log_info "调度器服务状态..."
+    
+    if [ -f "/etc/systemd/system/${SCHEDULER_SERVICE_NAME}.service" ]; then
+        systemctl status "${SCHEDULER_SERVICE_NAME}" --no-pager
+        echo ""
+        log_info "检查调度器执行状态..."
+        source "${VENV_DIR}/bin/activate"
+        python "${PROJECT_DIR}/deploy/scheduler_service.py" --status
+        deactivate
+    else
+        log_warn "调度器服务未安装"
+    fi
+}
+
+install_scheduler() {
+    log_info "安装调度器服务..."
+    
+    cp "${PROJECT_DIR}/deploy/market-sentiment-scheduler.service" /etc/systemd/system/
+    
+    systemctl daemon-reload
+    systemctl enable "${SCHEDULER_SERVICE_NAME}"
+    
+    log_info "调度器服务安装完成"
+    log_info "使用 'systemctl start ${SCHEDULER_SERVICE_NAME}' 启动服务"
+}
+
+run_manual_report() {
+    log_info "手动触发报告生成..."
+    
+    source "${VENV_DIR}/bin/activate"
+    python "${PROJECT_DIR}/deploy/scheduler_service.py" --manual
+    deactivate
+    
+    log_info "手动报告生成完成"
+}
+
 # ==================== 初始化项目 ====================
 init_project() {
     log_info "初始化项目..."
@@ -223,18 +286,47 @@ case "${1}" in
     rollback)
         rollback
         ;;
+    scheduler-install)
+        install_scheduler
+        ;;
+    scheduler-start)
+        start_scheduler
+        ;;
+    scheduler-stop)
+        stop_scheduler
+        ;;
+    scheduler-status)
+        scheduler_status
+        ;;
+    scheduler-restart)
+        stop_scheduler
+        sleep 2
+        start_scheduler
+        ;;
+    manual-report)
+        run_manual_report
+        ;;
     *)
-        echo "用法: $0 {init|install|update|start|stop|restart|status|rollback}"
+        echo "用法: $0 {init|install|update|start|stop|restart|status|rollback|scheduler-*|manual-report}"
         echo ""
         echo "命令说明:"
-        echo "  init     - 首次初始化项目"
-        echo "  install  - 安装/更新依赖"
-        echo "  update   - 拉取最新代码"
-        echo "  start    - 启动服务"
-        echo "  stop     - 停止服务"
-        echo "  restart  - 重启服务"
-        echo "  status   - 查看服务状态"
-        echo "  rollback - 回滚到上一版本"
+        echo "  init              - 首次初始化项目"
+        echo "  install           - 安装/更新依赖"
+        echo "  update            - 拉取最新代码"
+        echo "  start             - 启动Webhook服务"
+        echo "  stop              - 停止Webhook服务"
+        echo "  restart           - 重启Webhook服务"
+        echo "  status            - 查看Webhook服务状态"
+        echo "  rollback          - 回滚到上一版本"
+        echo ""
+        echo "调度器服务命令:"
+        echo "  scheduler-install - 安装调度器服务"
+        echo "  scheduler-start   - 启动调度器服务"
+        echo "  scheduler-stop    - 停止调度器服务"
+        echo "  scheduler-status  - 查看调度器状态"
+        echo "  scheduler-restart - 重启调度器服务"
+        echo ""
+        echo "  manual-report     - 手动触发报告生成"
         exit 1
         ;;
 esac

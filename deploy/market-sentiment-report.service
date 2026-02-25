@@ -1,0 +1,23 @@
+[Unit]
+Description=Market Sentiment Report One-Shot Execution
+Documentation=https://github.com/your-repo/ReThink
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/NGAStockAnalyze
+Environment="PYTHONUNBUFFERED=1"
+Environment="TZ=Asia/Shanghai"
+ExecStart=/opt/NGAStockAnalyze/venv/bin/python /opt/NGAStockAnalyze/deploy/scheduler_service.py --manual
+
+StandardOutput=append:/opt/NGAStockAnalyze/logs/scheduler.log
+StandardError=append:/opt/NGAStockAnalyze/logs/scheduler_error.log
+
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
