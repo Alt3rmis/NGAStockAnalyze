@@ -271,47 +271,4 @@ def fetch_industry_fund_flow_3d(top_n: int = 5):
 
     return top_in, top_out
 
-def run_daily_scan(date: str):
-    # === 行业资金流（你之前的函数） ===
-    top_in, top_out = fetch_industry_fund_flow_3d(top_n=5)
 
-    # === 龙虎榜机构买卖 + 热门方向 ===
-    df_lhb = fetch_lhb_jgmmtj(date)               # 前面写过
-    hot_buy, hot_sell = analyze_lhb_hot_industries(df_lhb, top_n=5)
-
-    # === 涨停结构 + 炸板 ===
-    limitup_struct = analyze_limitup_structure(date)
-    limitup_breaks = analyze_limitup_break(date)
-    env_desc, env_score = score_limitup_env(limitup_struct, limitup_breaks)
-
-    # === 三重交集：主线候选 + 回避方向 ===
-    long_candidates, short_avoid = build_core_sectors(
-        top_in=top_in,
-        top_out=top_out,
-        lhb_hot_buy=hot_buy,
-        lhb_hot_sell=hot_sell,
-        limitup_industry_top=limitup_struct["industry_top"],
-    )
-
-    print("\n====== 涨停环境 ======\n")
-    print(f"交易日: {limitup_struct['date']}")
-    print(f"涨停家数: {limitup_struct['total_zt']}")
-    print(f"最高板: {limitup_struct['max_lb']} 板")
-    print(env_desc, f"(score={env_score})")
-
-    print("\n[连板分布]")
-    print(limitup_struct["lb_dist"])
-
-    print("\n====== 三重共振的多头候选方向 ======\n")
-    if long_candidates:
-        for ind in long_candidates:
-            print("·", ind)
-    else:
-        print("无明显三重共振主线")
-
-    print("\n====== 多重踩雷的回避方向 ======\n")
-    if short_avoid:
-        for ind in short_avoid:
-            print("·", ind)
-    else:
-        print("暂无明显需要集体回避的行业")
