@@ -5,7 +5,7 @@ A股多空情绪分析工具
 
 import akshare as ak
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Any, Tuple, Optional
 
@@ -19,11 +19,20 @@ from src.industry_demo import fetch_industry_fund_flow_3d
 from src.institution_demo import (
     fetch_lhb_institution_flow, analyze_lhb_hot_industries, judge_lhb_institution_signal
 )
+from src.data_logger import (
+    DataLogger, FileArchiver, init_directories, 
+    LOGS_DIR, RESULTS_DIR, DATA_LOGS_DIR, ARCHIVE_DIR
+)
+
+BEIJING_TZ = timezone(timedelta(hours=8))
 
 
-# ==================== 配置常量 ====================
 class Config:
-    OUTPUT_DIR = Path(__file__).parent / "logs"
+    LOGS_DIR = LOGS_DIR
+    RESULTS_DIR = RESULTS_DIR
+    DATA_LOGS_DIR = DATA_LOGS_DIR
+    ARCHIVE_DIR = ARCHIVE_DIR
+    
     DATE_LOOKBACK_DAYS = 7
     MARGIN_CHANGE_DAYS = 3
     INDUSTRY_TOP_N = 5
@@ -34,11 +43,44 @@ class Config:
         MIN_CONFIDENCE_SCORE = 3
 
 
-# ==================== 日期工具 ====================
+_data_logger: Optional[DataLogger] = None
+_main_logger = None
+
+
+def get_data_logger() -> DataLogger:
+    global _data_logger
+    if _data_logger is None:
+        _data_logger = DataLogger()
+    return _data_logger
+
+
+def get_main_logger():
+    global _main_logger
+    if _main_logger is None:
+        import logging
+        _main_logger = logging.getLogger('MainApp')
+        if not _main_logger.handlers:
+            handler = logging.StreamHandler()
+            handler.setFormatter(
+                logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
+            )
+            _main_logger.addHandler(handler)
+            _main_logger.setLevel(logging.INFO)
+    return _main_logger
+
+
 def get_trade_date() -> str:
     """
     获取最近的交易日日期（YYYYMMDD格式）
     """
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "akshare.stock_zt_pool_em",
+        {"purpose": "获取交易日日期"}
+    )
+    
     today = datetime.now()
     for i in range(Config.DATE_LOOKBACK_DAYS):
         target_date = today - timedelta(days=i)
@@ -46,65 +88,151 @@ def get_trade_date() -> str:
         try:
             df = ak.stock_zt_pool_em(date=date_str)
             if not df.empty:
+                logger.log_data_fetch_success(fetch_id, df)
+                main_logger.info(f"交易日检测完成: {date_str}")
                 return date_str
-        except Exception:
+        except Exception as e:
             continue
-    return today.strftime("%Y%m%d")
+    
+    fallback_date = today.strftime("%Y%m%d")
+    logger.log_data_fetch_error(fetch_id, Exception(f"使用回退日期: {fallback_date}"))
+    main_logger.warning(f"未找到有效交易日，使用今天: {fallback_date}")
+    return fallback_date
 
 
-# ==================== 数据获取 ====================
 def fetch_margin_data() -> Dict[str, Any]:
     """获取融资融券数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "margin_data",
+        {"days": Config.MARGIN_CHANGE_DAYS}
+    )
+    
     try:
         latest_date, start, end, delta = fetch_total_margin_change(days=Config.MARGIN_CHANGE_DAYS)
-        return {
+        
+        result = {
             "latest_date": latest_date,
             "start": start,
             "end": end,
             "delta": delta,
             "signal": judge_margin_signal(delta, base=start)
         }
+        
+        logger.log_data_fetch_success(fetch_id, result)
+        main_logger.info(f"融资融券数据获取成功: 日期={latest_date}, 变化={delta:+,.0f}")
+        
+        return result
     except Exception as e:
+        logger.log_data_fetch_error(fetch_id, e)
+        main_logger.error(f"融资融券数据获取失败: {e}")
         return {"error": str(e)}
 
 
 def fetch_futures_data() -> Dict[str, Dict[str, Any]]:
     """获取股指期货数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
     result = {}
+    
     for key, fetch_func in [("if_main", fetch_if_main), ("im_main", fetch_im_main)]:
+        fetch_id = logger.log_data_fetch_start(
+            f"futures_{key}",
+            {"contract": key}
+        )
+        
         try:
-            result[key] = fetch_func()
+            data = fetch_func()
+            result[key] = data
+            logger.log_data_fetch_success(fetch_id, data)
+            main_logger.info(f"期货数据获取成功: {key}, 信号={data.get('signal', 'N/A')}")
         except Exception as e:
             result[key] = {"error": str(e)}
+            logger.log_data_fetch_error(fetch_id, e)
+            main_logger.error(f"期货数据获取失败: {key}, 错误={e}")
+    
     return result
 
 
 def fetch_industry_data() -> Dict[str, Any]:
     """获取行业资金流数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "industry_fund_flow_3d",
+        {"top_n": Config.INDUSTRY_TOP_N}
+    )
+    
     try:
         top_in, top_out = fetch_industry_fund_flow_3d(top_n=Config.INDUSTRY_TOP_N)
-        return {"top_in": top_in, "top_out": top_out}
+        
+        result = {"top_in": top_in, "top_out": top_out}
+        
+        combined_data = {
+            "top_in_count": len(top_in) if top_in is not None else 0,
+            "top_out_count": len(top_out) if top_out is not None else 0,
+            "top_in_sample": top_in.head(3).to_dict('records') if top_in is not None else [],
+            "top_out_sample": top_out.head(3).to_dict('records') if top_out is not None else []
+        }
+        logger.log_data_fetch_success(fetch_id, combined_data)
+        main_logger.info(f"行业资金流数据获取成功: 流入{len(top_in) if top_in is not None else 0}条, 流出{len(top_out) if top_out is not None else 0}条")
+        
+        return result
     except Exception as e:
+        logger.log_data_fetch_error(fetch_id, e)
+        main_logger.error(f"行业资金流数据获取失败: {e}")
         return {"error": str(e)}
 
 
 def fetch_lhb_data(date_str: str) -> Dict[str, Any]:
     """获取龙虎榜数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "lhb_institution_flow",
+        {"start_date": date_str}
+    )
+    
     try:
         df_lhb, total_net = fetch_lhb_institution_flow(start_date=date_str)
-        return {
+        
+        result = {
             "df": df_lhb,
             "total_net": total_net,
             "signal": judge_lhb_institution_signal(total_net),
             "hot_buy": None,
             "hot_sell": None
         }
+        
+        log_data = {
+            "total_net": total_net,
+            "signal": result["signal"],
+            "record_count": len(df_lhb) if df_lhb is not None else 0
+        }
+        logger.log_data_fetch_success(fetch_id, log_data)
+        main_logger.info(f"龙虎榜数据获取成功: 净买入={total_net:,.0f}, 信号={result['signal']}")
+        
+        return result
     except Exception as e:
+        logger.log_data_fetch_error(fetch_id, e)
+        main_logger.error(f"龙虎榜数据获取失败: {e}")
         return {"error": str(e)}
 
 
 def fetch_limitup_data(date_str: str) -> Dict[str, Any]:
     """获取涨停板数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "limitup_analysis",
+        {"date": date_str}
+    )
+    
     try:
         struct = analyze_limitup_structure(date=date_str)
         breaks = analyze_limitup_break(date=date_str)
@@ -112,7 +240,7 @@ def fetch_limitup_data(date_str: str) -> Dict[str, Any]:
         tier_analysis = analyze_tier_structure(struct["lb_dist"], struct["max_lb"])
         graduation_analysis = analyze_sector_graduation(struct, breaks)
         
-        return {
+        result = {
             "struct": struct,
             "breaks": breaks,
             "env_desc": env_desc,
@@ -120,31 +248,76 @@ def fetch_limitup_data(date_str: str) -> Dict[str, Any]:
             "tier": tier_analysis,
             "graduation": graduation_analysis
         }
+        
+        log_data = {
+            "total_zt": struct.get("total_zt", 0),
+            "max_lb": struct.get("max_lb", 0),
+            "env_score": env_score,
+            "env_desc": env_desc
+        }
+        logger.log_data_fetch_success(fetch_id, log_data)
+        main_logger.info(f"涨停板数据获取成功: 涨停数={struct.get('total_zt', 0)}, 最高板={struct.get('max_lb', 0)}板")
+        
+        return result
     except Exception as e:
+        logger.log_data_fetch_error(fetch_id, e)
+        main_logger.error(f"涨停板数据获取失败: {e}")
         return {"error": str(e)}
 
 
 def fetch_external_data() -> Dict[str, Any]:
     """获取外围市场数据"""
+    logger = get_data_logger()
+    main_logger = get_main_logger()
+    
+    fetch_id = logger.log_data_fetch_start(
+        "akshare.stock_zh_index_daily",
+        {"symbol": "sh000001"}
+    )
+    
     try:
         df_sh = ak.stock_zh_index_daily(symbol="sh000001")
+        
         if len(df_sh) >= 2:
             close_today = df_sh["close"].iloc[-1]
             close_yesterday = df_sh["close"].iloc[-2]
             pct = (close_today / close_yesterday - 1) * 100
-            return {
+            
+            result = {
                 "sh_index": {
                     "pct_change": pct,
                     "signal": "多" if pct > 0 else "空" if pct < 0 else "中性"
                 }
             }
+            
+            log_data = {
+                "close_today": float(close_today),
+                "close_yesterday": float(close_yesterday),
+                "pct_change": pct,
+                "signal": result["sh_index"]["signal"]
+            }
+            logger.log_data_fetch_success(fetch_id, log_data)
+            main_logger.info(f"外围市场数据获取成功: 上证指数涨跌幅={pct:+.2f}%")
+            
+            return result
+        
+        error = Exception("数据不足")
+        logger.log_data_fetch_error(fetch_id, error)
+        main_logger.error("外围市场数据获取失败: 数据不足")
         return {"error": "数据不足"}
     except Exception as e:
+        logger.log_data_fetch_error(fetch_id, e)
+        main_logger.error(f"外围市场数据获取失败: {e}")
         return {"error": str(e)}
 
 
 def fetch_all_data(date_str: str) -> Dict[str, Any]:
     """获取所有需要的数据"""
+    main_logger = get_main_logger()
+    main_logger.info("=" * 60)
+    main_logger.info(f"开始获取所有数据 - 分析日期: {date_str}")
+    main_logger.info("=" * 60)
+    
     data = {
         "margin": fetch_margin_data(),
         "industry_flow": fetch_industry_data(),
@@ -153,10 +326,17 @@ def fetch_all_data(date_str: str) -> Dict[str, Any]:
         "external": fetch_external_data(),
     }
     data.update(fetch_futures_data())
+    
+    success_count = sum(1 for v in data.values() if "error" not in v)
+    total_count = len(data)
+    
+    main_logger.info("=" * 60)
+    main_logger.info(f"数据获取完成: 成功 {success_count}/{total_count}")
+    main_logger.info("=" * 60)
+    
     return data
 
 
-# ==================== 分数计算 ====================
 def calculate_scores(data: Dict[str, Any]) -> Dict[str, float]:
     """计算多空分数"""
     scores = {"long": 0.0, "short": 0.0}
@@ -194,7 +374,6 @@ def calculate_scores(data: Dict[str, Any]) -> Dict[str, float]:
     return scores
 
 
-# ==================== 开盘预判 ====================
 def predict_market_opening(scores: Dict[str, float], data: Dict[str, Any]) -> Dict[str, str]:
     """
     预判明天开盘情况
@@ -258,7 +437,6 @@ def _determine_strategy(data: Dict[str, Any]) -> Tuple[str, str]:
     return "震荡市", "多空信号分歧，等待方向明确"
 
 
-# ==================== 板块分析 ====================
 def analyze_sectors(data: Dict[str, Any]) -> Dict[str, Any]:
     """分析板块机会"""
     sectors = {}
@@ -294,7 +472,6 @@ def analyze_sectors(data: Dict[str, Any]) -> Dict[str, Any]:
     return sectors
 
 
-# ==================== 报告生成 ====================
 class ReportGenerator:
     """Markdown报告生成器"""
     
@@ -306,6 +483,7 @@ class ReportGenerator:
         self.lines.extend([
             f"# 多空情绪分析报告",
             f"\n**日期**: {self.date_str}",
+            f"\n**生成时间**: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')} (北京时间)",
             "\n---"
         ])
     
@@ -554,28 +732,73 @@ def _add_external_section(report: ReportGenerator, data: Dict):
 
 def save_report_to_file(report_str: str, date_str: str) -> str:
     """保存报告到Markdown文件"""
-    Config.OUTPUT_DIR.mkdir(exist_ok=True)
+    main_logger = get_main_logger()
+    
+    Config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     
     file_name = f"{date_str}_market_sentiment.md"
-    file_path = Config.OUTPUT_DIR / file_name
+    file_path = Config.RESULTS_DIR / file_name
     
     file_path.write_text(report_str, encoding="utf-8")
+    main_logger.info(f"报告已保存到: {file_path}")
     print(f"报告已保存到: {file_path}")
     return file_name
 
 
-# ==================== 主函数 ====================
+def check_and_archive_folders():
+    """检查文件夹大小并在需要时打包"""
+    main_logger = get_main_logger()
+    
+    archiver = FileArchiver(
+        logs_dir=Config.LOGS_DIR,
+        results_dir=Config.RESULTS_DIR,
+        archive_dir=Config.ARCHIVE_DIR
+    )
+    
+    results = archiver.check_all_folders()
+    
+    for folder_name, archive_path in results.items():
+        if archive_path:
+            main_logger.info(f"{folder_name} 文件夹已打包: {archive_path}")
+    
+    return results
+
+
 def main():
-    date_str = get_trade_date()
-    print(f"分析日期: {date_str}")
+    init_directories()
     
-    data = fetch_all_data(date_str)
-    scores = calculate_scores(data)
-    sectors = analyze_sectors(data)
-    opening_pred = predict_market_opening(scores, data)
+    main_logger = get_main_logger()
+    data_logger = get_data_logger()
     
-    report, file_name = generate_report(data, scores, sectors, date_str, opening_pred)
-    print(report)
+    main_logger.info("=" * 60)
+    main_logger.info("开始执行市场情绪分析")
+    main_logger.info(f"北京时间: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')}")
+    main_logger.info("=" * 60)
+    
+    try:
+        date_str = get_trade_date()
+        print(f"分析日期: {date_str}")
+        
+        data = fetch_all_data(date_str)
+        scores = calculate_scores(data)
+        sectors = analyze_sectors(data)
+        opening_pred = predict_market_opening(scores, data)
+        
+        report, file_name = generate_report(data, scores, sectors, date_str, opening_pred)
+        print(report)
+        
+        record_file = data_logger.save_session_record()
+        main_logger.info(f"数据获取记录已保存: {record_file}")
+        
+        check_and_archive_folders()
+        
+        main_logger.info("=" * 60)
+        main_logger.info("市场情绪分析执行完成")
+        main_logger.info("=" * 60)
+        
+    except Exception as e:
+        main_logger.error(f"执行失败: {e}", exc_info=True)
+        raise
 
 
 if __name__ == "__main__":

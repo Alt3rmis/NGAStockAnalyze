@@ -38,11 +38,13 @@ SCHEDULE_HOUR = 20
 SCHEDULE_MINUTE = 0
 
 PROJECT_DIR = Path(__file__).parent.parent
-LOGS_DIR = PROJECT_DIR / "logs"
+
+from src.data_logger import LOGS_DIR, RESULTS_DIR, ARCHIVE_DIR, init_directories, FileArchiver
+
 STATUS_FILE = LOGS_DIR / "scheduler_status.json"
 SCHEDULER_LOG = LOGS_DIR / "scheduler.log"
 
-LOGS_DIR.mkdir(exist_ok=True)
+init_directories()
 
 logging.basicConfig(
     level=logging.INFO,
@@ -148,7 +150,8 @@ class ReportGenerator:
         try:
             from main import (
                 get_trade_date, fetch_all_data, calculate_scores,
-                analyze_sectors, predict_market_opening, generate_report
+                analyze_sectors, predict_market_opening, generate_report,
+                check_and_archive_folders
             )
             
             logger.info("Starting report generation...")
@@ -172,6 +175,9 @@ class ReportGenerator:
             report_str, file_name = generate_report(
                 data, scores, sectors, date_str, opening_pred
             )
+            
+            logger.info("Checking folder sizes and archiving if needed...")
+            check_and_archive_folders()
             
             result["success"] = True
             result["report_file"] = file_name
@@ -343,6 +349,15 @@ def print_status(status: Dict[str, Any]) -> None:
     print(f"\nBeijing Time: {status.get('beijing_time', 'N/A')}")
     print(f"Service Started: {status.get('service_started', 'N/A')}")
     print(f"Scheduler Running: {status.get('scheduler_running', False)}")
+    
+    print("\n--- Folder Sizes ---")
+    archiver = FileArchiver()
+    logs_size = archiver.get_folder_size_mb(LOGS_DIR)
+    results_size = archiver.get_folder_size_mb(RESULTS_DIR)
+    archives_size = archiver.get_folder_size_mb(ARCHIVE_DIR) if ARCHIVE_DIR.exists() else 0
+    print(f"Logs Folder: {logs_size:.2f} MB (threshold: {50} MB)")
+    print(f"Results Folder: {results_size:.2f} MB (threshold: {50} MB)")
+    print(f"Archives Folder: {archives_size:.2f} MB")
     
     print("\n--- Execution Statistics ---")
     print(f"Total Executions: {status.get('total_executions', 0)}")
