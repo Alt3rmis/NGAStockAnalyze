@@ -124,7 +124,18 @@ jobs:
           key: ${{ secrets.NGA_DEPLOY_KEY }}
           script: |
             echo "=== Starting NGAStockAnalyze Staging Deployment ==="
-            cd ${{ env.DEPLOY_PATH }}
+            
+            DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
+            
+            if [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Project not initialized. Running init..."
+              rm -rf "$DEPLOY_PATH"
+              git clone https://github.com/Alt3rmis/NGAStockAnalyze.git "$DEPLOY_PATH"
+              cd "$DEPLOY_PATH"
+              ./deploy/deploy.sh install
+            else
+              cd "$DEPLOY_PATH"
+            fi
             
             echo "Current directory: $(pwd)"
             echo "Current user: $(whoami)"
@@ -174,7 +185,18 @@ jobs:
           key: ${{ secrets.NGA_DEPLOY_KEY }}
           script: |
             echo "=== Starting NGAStockAnalyze Production Deployment ==="
-            cd ${{ env.DEPLOY_PATH }}
+            
+            DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
+            
+            if [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Project not initialized. Running init..."
+              rm -rf "$DEPLOY_PATH"
+              git clone https://github.com/Alt3rmis/NGAStockAnalyze.git "$DEPLOY_PATH"
+              cd "$DEPLOY_PATH"
+              ./deploy/deploy.sh install
+            else
+              cd "$DEPLOY_PATH"
+            fi
             
             echo "Current directory: $(pwd)"
             echo "Current user: $(whoami)"
