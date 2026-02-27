@@ -139,17 +139,21 @@ jobs:
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
               echo "Cloning repository via SSH..."
               git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
-              cd "$DEPLOY_PATH"
-              ./deploy/deploy.sh install
-            else
-              cd "$DEPLOY_PATH"
             fi
+            
+            cd "$DEPLOY_PATH"
+            chmod +x deploy/deploy.sh
             
             echo "Current directory: $(pwd)"
             echo "Current user: $(whoami)"
             echo "Current branch: $(git branch --show-current)"
             
-            ./deploy/deploy.sh update
+            if [ ! -d "venv" ]; then
+              ./deploy/deploy.sh install
+            else
+              ./deploy/deploy.sh update
+            fi
+            
             ./deploy/deploy.sh restart
             ./deploy/deploy.sh status
             
@@ -208,18 +212,22 @@ jobs:
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
               echo "Cloning repository via SSH..."
               git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
-              cd "$DEPLOY_PATH"
-              ./deploy/deploy.sh install
-            else
-              cd "$DEPLOY_PATH"
             fi
+            
+            cd "$DEPLOY_PATH"
+            chmod +x deploy/deploy.sh
             
             echo "Current directory: $(pwd)"
             echo "Current user: $(whoami)"
             echo "Current branch: $(git branch --show-current)"
             echo "Latest commit: $(git log -1 --oneline)"
             
-            ./deploy/deploy.sh update
+            if [ ! -d "venv" ]; then
+              ./deploy/deploy.sh install
+            else
+              ./deploy/deploy.sh update
+            fi
+            
             ./deploy/deploy.sh restart
             
             sleep 5
