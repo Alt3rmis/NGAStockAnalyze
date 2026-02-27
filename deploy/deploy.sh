@@ -64,6 +64,9 @@ install_dependencies() {
     pip install -r "${PROJECT_DIR}/requirements.txt"
     deactivate
     
+    mkdir -p "${LOG_DIR}"
+    mkdir -p "${BACKUP_DIR}"
+    
     log_info "依赖安装完成"
 }
 
@@ -112,6 +115,8 @@ update_code() {
 # ==================== 启动服务 ====================
 start_service() {
     log_info "启动服务..."
+    
+    mkdir -p "${LOG_DIR}"
     
     if [ -f "/etc/systemd/system/${SERVICE_NAME}.service" ]; then
         systemctl start "${SERVICE_NAME}"
