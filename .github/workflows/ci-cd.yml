@@ -127,9 +127,16 @@ jobs:
             
             DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
             
-            if [ ! -d "$DEPLOY_PATH/.git" ]; then
-              echo "Project not initialized. Running init..."
+            if [ ! -d "$DEPLOY_PATH" ]; then
+              echo "Directory does not exist. Creating parent directories..."
+              mkdir -p "$(dirname "$DEPLOY_PATH")"
+            elif [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Directory exists but not a git repo. Cleaning up..."
               rm -rf "$DEPLOY_PATH"
+            fi
+            
+            if [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Cloning repository..."
               git clone https://github.com/Alt3rmis/NGAStockAnalyze.git "$DEPLOY_PATH"
               cd "$DEPLOY_PATH"
               ./deploy/deploy.sh install
@@ -188,9 +195,16 @@ jobs:
             
             DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
             
-            if [ ! -d "$DEPLOY_PATH/.git" ]; then
-              echo "Project not initialized. Running init..."
+            if [ ! -d "$DEPLOY_PATH" ]; then
+              echo "Directory does not exist. Creating parent directories..."
+              mkdir -p "$(dirname "$DEPLOY_PATH")"
+            elif [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Directory exists but not a git repo. Cleaning up..."
               rm -rf "$DEPLOY_PATH"
+            fi
+            
+            if [ ! -d "$DEPLOY_PATH/.git" ]; then
+              echo "Cloning repository..."
               git clone https://github.com/Alt3rmis/NGAStockAnalyze.git "$DEPLOY_PATH"
               cd "$DEPLOY_PATH"
               ./deploy/deploy.sh install
