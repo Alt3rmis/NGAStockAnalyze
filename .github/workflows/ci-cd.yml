@@ -138,15 +138,21 @@ jobs:
             
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
               echo "Cloning repository via SSH..."
-              git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
+              git clone "$REPO_SSH_URL" "$DEPLOY_PATH"
             fi
             
             cd "$DEPLOY_PATH"
+            
+            echo "Pulling latest code..."
+            git fetch origin
+            git reset --hard origin/main
+            
             chmod +x deploy/deploy.sh
             
             echo "Current directory: $(pwd)"
             echo "Current user: $(whoami)"
             echo "Current branch: $(git branch --show-current)"
+            echo "Latest commit: $(git log -1 --oneline)"
             
             if [ ! -d "venv" ]; then
               ./deploy/deploy.sh install
@@ -211,10 +217,15 @@ jobs:
             
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
               echo "Cloning repository via SSH..."
-              git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
+              git clone "$REPO_SSH_URL" "$DEPLOY_PATH"
             fi
             
             cd "$DEPLOY_PATH"
+            
+            echo "Pulling latest code..."
+            git fetch origin
+            git reset --hard origin/main
+            
             chmod +x deploy/deploy.sh
             
             echo "Current directory: $(pwd)"
