@@ -8,7 +8,8 @@ set -e
 
 # ==================== 配置 ====================
 PROJECT_NAME="NGAStockAnalyze"
-PROJECT_DIR="${HOME}/${PROJECT_NAME}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 VENV_DIR="${PROJECT_DIR}/venv"
 LOG_DIR="${PROJECT_DIR}/logs"
 BACKUP_DIR="${HOME}/backups/${PROJECT_NAME}"
@@ -37,12 +38,25 @@ log_error() {
 
 # ==================== 安装依赖 ====================
 install_dependencies() {
-    log_info "安装系统依赖..."
-    apt-get update
-    apt-get install -y python3 python3-pip python3-venv git
+    if command -v python3 &> /dev/null && command -v pip3 &> /dev/null; then
+        log_info "Python3 已安装，跳过系统依赖安装"
+    else
+        log_info "安装系统依赖..."
+        if [ "$EUID" -eq 0 ]; then
+            apt-get update
+            apt-get install -y python3 python3-pip python3-venv git
+        elif command -v sudo &> /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y python3 python3-pip python3-venv git
+        else
+            log_warn "无 root 权限，跳过系统依赖安装。请确保已安装 python3, pip3, venv, git"
+        fi
+    fi
     
-    log_info "创建虚拟环境..."
-    python3 -m venv "${VENV_DIR}"
+    if [ ! -d "${VENV_DIR}" ]; then
+        log_info "创建虚拟环境..."
+        python3 -m venv "${VENV_DIR}"
+    fi
     
     log_info "安装Python依赖..."
     source "${VENV_DIR}/bin/activate"
