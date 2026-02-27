@@ -40,6 +40,7 @@ class NotificationChannel(Enum):
     EMAIL = "email"
     WECHAT = "wechat"
     QQ = "qq"
+    FEISHU = "feishu"
 
 
 class NotificationStatus(Enum):
@@ -103,6 +104,12 @@ class QQConfig(NotificationConfig):
     """QQ bot configuration (QQ robot webhook)"""
     webhook_url: str = ""
     group_id: Optional[str] = None
+
+
+@dataclass
+class FeishuConfig(NotificationConfig):
+    """Feishu bot configuration (Feishu custom bot webhook)"""
+    webhook_url: str = ""
 
 
 def retry_on_failure(max_retries: int = 3, delay: int = 5):
@@ -441,6 +448,186 @@ class QQNotifier(BaseNotifier):
         return True
 
 
+class FeishuNotifier(BaseNotifier):
+    """
+    Feishu bot notification channel
+    Uses custom bot webhook for group notifications
+    Supports interactive cards and rich text messages
+    """
+    
+    def __init__(self, config: FeishuConfig):
+        super().__init__(config)
+        self.feishu_config = config
+    
+    @property
+    def channel_type(self) -> NotificationChannel:
+        return NotificationChannel.FEISHU
+    
+    def _send_message(self, content: str, subject: str = "") -> bool:
+        """
+        Send message to Feishu group via custom bot webhook
+        
+        Args:
+            content: Message content (supports Feishu card format)
+            subject: Optional subject prefix
+        
+        Returns:
+            True if successful
+        """
+        import urllib.request
+        import urllib.error
+        
+        if not self.feishu_config.webhook_url:
+            raise ValueError("Feishu webhook URL not configured")
+        
+        if subject:
+            full_content = f"**{subject}**\n\n{content}"
+        else:
+            full_content = content
+        
+        payload = {
+            "msg_type": "text",
+            "content": {
+                "text": full_content
+            }
+        }
+        
+        data = json.dumps(payload).encode('utf-8')
+        
+        request = urllib.request.Request(
+            self.feishu_config.webhook_url,
+            data=data,
+            headers={
+                'Content-Type': 'application/json',
+                'User-Agent': 'MarketSentimentNotifier/1.0'
+            },
+            method='POST'
+        )
+        
+        with urllib.request.urlopen(request, timeout=30) as response:
+            result = json.loads(response.read().decode('utf-8'))
+            if result.get('code', 0) != 0:
+                raise Exception(f"Feishu API error: {result.get('msg', 'Unknown error')}")
+        
+        return True
+    
+    def send_card(self, title: str, content: str) -> NotificationResult:
+        """
+        Send an interactive card message to Feishu
+        
+        Args:
+            title: Card title
+            content: Card content (Markdown supported)
+        
+        Returns:
+            NotificationResult with delivery status
+        """
+        if not self.config.enabled:
+            return NotificationResult(
+                channel=self.channel_type,
+                status=NotificationStatus.FAILED,
+                message="Channel is disabled",
+                error_details="Notification channel is not enabled in configuration"
+            )
+        
+        retry_count = 0
+        last_error = None
+        
+        while retry_count <= self.config.retry_count:
+            try:
+                logger.info(f"Sending card notification via Feishu (attempt {retry_count + 1})")
+                
+                success = self._send_card_message(title, content)
+                
+                if success:
+                    result = NotificationResult(
+                        channel=self.channel_type,
+                        status=NotificationStatus.SUCCESS,
+                        message="Card notification sent successfully",
+                        retry_count=retry_count
+                    )
+                    self._log_status(result)
+                    logger.info("Card notification sent successfully via Feishu")
+                    return result
+                    
+            except Exception as e:
+                last_error = str(e)
+                logger.error(f"Failed to send card notification via Feishu: {e}")
+            
+            retry_count += 1
+            if retry_count <= self.config.retry_count:
+                logger.info(f"Retrying in {self.config.retry_delay} seconds...")
+                time.sleep(self.config.retry_delay)
+        
+        result = NotificationResult(
+            channel=self.channel_type,
+            status=NotificationStatus.FAILED,
+            message="Failed to send card notification after all retries",
+            retry_count=retry_count - 1,
+            error_details=last_error
+        )
+        self._log_status(result)
+        return result
+    
+    def _send_card_message(self, title: str, content: str) -> bool:
+        """
+        Internal method to send interactive card message
+        
+        Args:
+            title: Card title
+            content: Card content
+        
+        Returns:
+            True if successful
+        """
+        import urllib.request
+        import urllib.error
+        
+        if not self.feishu_config.webhook_url:
+            raise ValueError("Feishu webhook URL not configured")
+        
+        payload = {
+            "msg_type": "interactive",
+            "card": {
+                "config": {
+                    "wide_screen_mode": True
+                },
+                "header": {
+                    "title": {
+                        "tag": "plain_text",
+                        "content": title
+                    },
+                    "template": "blue"
+                },
+                "elements": [
+                    {
+                        "tag": "markdown",
+                        "content": content
+                    }
+                ]
+            }
+        }
+        
+        data = json.dumps(payload).encode('utf-8')
+        
+        request = urllib.request.Request(
+            self.feishu_config.webhook_url,
+            data=data,
+            headers={
+                'Content-Type': 'application/json',
+                'User-Agent': 'MarketSentimentNotifier/1.0'
+            },
+            method='POST'
+        )
+        
+        with urllib.request.urlopen(request, timeout=30) as response:
+            result = json.loads(response.read().decode('utf-8'))
+            if result.get('code', 0) != 0:
+                raise Exception(f"Feishu API error: {result.get('msg', 'Unknown error')}")
+        
+        return True
+
+
 class NotificationManager:
     """
     Central notification manager
@@ -480,7 +667,7 @@ class NotificationManager:
     def _create_default_config(self) -> None:
         """Create default configuration file"""
         default_config = {
-            "default_channel": "wechat",
+            "default_channel": "feishu",
             "retry_count": 3,
             "retry_delay": 5,
             "channels": {
@@ -507,6 +694,12 @@ class NotificationManager:
                     "enabled": False,
                     "webhook_url": "http://localhost:5700/send_group_msg",
                     "group_id": None,
+                    "retry_count": 3,
+                    "retry_delay": 5
+                },
+                "feishu": {
+                    "enabled": False,
+                    "webhook_url": "",
                     "retry_count": 3,
                     "retry_delay": 5
                 }
@@ -562,6 +755,17 @@ class NotificationManager:
                     group_id=qq_config.get("group_id"),
                     retry_count=qq_config.get("retry_count", 3),
                     retry_delay=qq_config.get("retry_delay", 5)
+                )
+            )
+        
+        if "feishu" in channels:
+            feishu_config = channels["feishu"]
+            self.notifiers[NotificationChannel.FEISHU] = FeishuNotifier(
+                FeishuConfig(
+                    enabled=feishu_config.get("enabled", False),
+                    webhook_url=feishu_config.get("webhook_url", ""),
+                    retry_count=feishu_config.get("retry_count", 3),
+                    retry_delay=feishu_config.get("retry_delay", 5)
                 )
             )
         
@@ -739,6 +943,37 @@ class ReportFormatter:
         return '\n'.join(formatted_lines)
     
     @staticmethod
+    def format_for_feishu(report: str, date_str: str) -> str:
+        """
+        Format report for Feishu (Markdown supported with some limitations)
+        
+        Args:
+            report: Original Markdown report
+            date_str: Report date
+        
+        Returns:
+            Formatted content for Feishu
+        """
+        lines = report.split('\n')
+        formatted_lines = []
+        
+        for line in lines:
+            if line.startswith('# '):
+                formatted_lines.append(f"**{line[2:]}**")
+            elif line.startswith('## '):
+                formatted_lines.append(f"\n**{line[3:]}**")
+            elif line.startswith('|'):
+                cells = [c.strip() for c in line.split('|') if c.strip()]
+                if not all(c.replace('-', '').replace(':', '') == '' for c in cells):
+                    formatted_lines.append('| ' + ' | '.join(cells) + ' |')
+            elif line.startswith('---'):
+                formatted_lines.append('---')
+            elif line.strip():
+                formatted_lines.append(line)
+        
+        return '\n'.join(formatted_lines)
+    
+    @staticmethod
     def _markdown_to_html(markdown: str) -> str:
         """Simple Markdown to HTML conversion"""
         import re
@@ -810,6 +1045,8 @@ def send_daily_notification(
             formatted_content = ReportFormatter.format_for_wechat(report_content, report_date)
         elif channel == NotificationChannel.QQ:
             formatted_content = ReportFormatter.format_for_qq(report_content, report_date)
+        elif channel == NotificationChannel.FEISHU:
+            formatted_content = ReportFormatter.format_for_feishu(report_content, report_date)
         else:
             formatted_content = report_content
         

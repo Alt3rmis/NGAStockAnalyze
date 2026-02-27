@@ -104,3 +104,6 @@ Thumbs.db
 results/
 archives/
 *.tar.gz
+
+# Feishu webhook config (contains sensitive webhook URL)
+config/feishu_config.json

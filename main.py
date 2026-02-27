@@ -3,6 +3,7 @@ A股多空情绪分析工具
 整合多源数据，生成市场情绪分析报告
 """
 
+import json
 import akshare as ak
 import pandas as pd
 from datetime import datetime, timedelta, timezone
@@ -764,6 +765,68 @@ def check_and_archive_folders():
     return results
 
 
+def send_feishu_notification(report: str, date_str: str) -> bool:
+    """
+    发送报告到飞书机器人
+    
+    Args:
+        report: Markdown格式的报告内容
+        date_str: 日期字符串 (YYYYMMDD格式)
+    
+    Returns:
+        发送成功返回True，否则返回False
+    """
+    from src.notifier import (
+        FeishuNotifier, FeishuConfig, ReportFormatter, NotificationStatus
+    )
+    
+    main_logger = get_main_logger()
+    
+    feishu_config_path = Path(__file__).parent / "config" / "feishu_config.json"
+    
+    if not feishu_config_path.exists():
+        main_logger.warning(f"飞书配置文件不存在: {feishu_config_path}")
+        return False
+    
+    try:
+        with open(feishu_config_path, 'r', encoding='utf-8') as f:
+            config_data = json.load(f)
+        
+        config = FeishuConfig(
+            enabled=config_data.get("enabled", False),
+            webhook_url=config_data.get("webhook_url", ""),
+            retry_count=config_data.get("retry_count", 3),
+            retry_delay=config_data.get("retry_delay", 5)
+        )
+        
+        if not config.enabled:
+            main_logger.info("飞书通知未启用")
+            return False
+        
+        if not config.webhook_url:
+            main_logger.warning("飞书webhook URL未配置")
+            return False
+        
+        notifier = FeishuNotifier(config)
+        
+        formatted_content = ReportFormatter.format_for_feishu(report, date_str)
+        
+        title = f"📊 多空情绪分析报告 - {date_str}"
+        
+        result = notifier.send_card(title, formatted_content)
+        
+        if result.status == NotificationStatus.SUCCESS:
+            main_logger.info("飞书通知发送成功")
+            return True
+        else:
+            main_logger.error(f"飞书通知发送失败: {result.error_details}")
+            return False
+            
+    except Exception as e:
+        main_logger.error(f"发送飞书通知时出错: {e}")
+        return False
+
+
 def main():
     init_directories()
     
@@ -786,6 +849,8 @@ def main():
         
         report, file_name = generate_report(data, scores, sectors, date_str, opening_pred)
         print(report)
+        
+        send_feishu_notification(report, date_str)
         
         record_file = data_logger.save_session_record()
         main_logger.info(f"数据获取记录已保存: {record_file}")

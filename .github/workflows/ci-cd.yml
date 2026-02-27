@@ -126,8 +126,7 @@ jobs:
             echo "=== Starting NGAStockAnalyze Staging Deployment ==="
             
             DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
-            REPO_URL="https://github.com/Alt3rmis/NGAStockAnalyze.git"
-            PROXY_URL="https://ghproxy.com/https://github.com/Alt3rmis/NGAStockAnalyze.git"
+            REPO_SSH_URL="git@github.com:Alt3rmis/NGAStockAnalyze.git"
             
             if [ ! -d "$DEPLOY_PATH" ]; then
               echo "Directory does not exist. Creating parent directories..."
@@ -138,14 +137,8 @@ jobs:
             fi
             
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
-              echo "Cloning repository with proxy..."
-              if git clone "$PROXY_URL" "$DEPLOY_PATH" --depth 1; then
-                echo "Clone with proxy successful"
-              else
-                echo "Proxy failed, trying direct connection..."
-                rm -rf "$DEPLOY_PATH"
-                git clone "$REPO_URL" "$DEPLOY_PATH" --depth 1
-              fi
+              echo "Cloning repository via SSH..."
+              git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
               cd "$DEPLOY_PATH"
               ./deploy/deploy.sh install
             else
@@ -202,8 +195,7 @@ jobs:
             echo "=== Starting NGAStockAnalyze Production Deployment ==="
             
             DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
-            REPO_URL="https://github.com/Alt3rmis/NGAStockAnalyze.git"
-            PROXY_URL="https://ghproxy.com/https://github.com/Alt3rmis/NGAStockAnalyze.git"
+            REPO_SSH_URL="git@github.com:Alt3rmis/NGAStockAnalyze.git"
             
             if [ ! -d "$DEPLOY_PATH" ]; then
               echo "Directory does not exist. Creating parent directories..."
@@ -214,14 +206,8 @@ jobs:
             fi
             
             if [ ! -d "$DEPLOY_PATH/.git" ]; then
-              echo "Cloning repository with proxy..."
-              if git clone "$PROXY_URL" "$DEPLOY_PATH" --depth 1; then
-                echo "Clone with proxy successful"
-              else
-                echo "Proxy failed, trying direct connection..."
-                rm -rf "$DEPLOY_PATH"
-                git clone "$REPO_URL" "$DEPLOY_PATH" --depth 1
-              fi
+              echo "Cloning repository via SSH..."
+              git clone "$REPO_SSH_URL" "$DEPLOY_PATH" --depth 1
               cd "$DEPLOY_PATH"
               ./deploy/deploy.sh install
             else
