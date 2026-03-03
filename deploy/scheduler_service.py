@@ -36,8 +36,11 @@ except ImportError:
     APSCHEDULER_AVAILABLE = False
 
 BEIJING_TZ = timezone(timedelta(hours=8))
-SCHEDULE_HOUR = 20
-SCHEDULE_MINUTE = 0
+SCHEDULE_HOUR = 23
+SCHEDULE_MINUTE = 30
+
+MARGIN_FETCH_ENABLED = True
+MARGIN_FETCH_MINUTE = 5
 
 PROJECT_DIR = Path(__file__).parent.parent
 
@@ -96,7 +99,10 @@ class SchedulerStatus:
             "next_scheduled": None,
             "last_notification_status": None,
             "notification_enabled": True,
-            "last_git_upload_status": None
+            "last_git_upload_status": None,
+            "last_margin_date": None,
+            "last_margin_fetch_time": None,
+            "last_margin_total": None
         }
     
     def record_start(self) -> None:
@@ -383,13 +389,132 @@ class SchedulerService:
                     self.status.set_next_scheduled(next_run.astimezone(BEIJING_TZ))
                 break
     
+    def _get_target_margin_date(self) -> str:
+        """
+        根据当前时间确定应该获取哪一天的融资融券数据
+        
+        规则:
+        - 交易日 15:00 后到次日 9:00 前，获取当天的数据
+        - 周五 15:00 后到周一 9:00 前，获取周五的数据
+        - 每日 9:00-15:00 期间，获取前一天的数据
+        
+        Returns:
+            目标日期字符串 (YYYYMMDD格式)
+        """
+        now = datetime.now(BEIJING_TZ)
+        hour = now.hour
+        weekday = now.weekday()
+        
+        if hour >= 15:
+            if weekday == 4:
+                return now.strftime("%Y%m%d")
+            elif weekday == 5:
+                friday = now - timedelta(days=1)
+                return friday.strftime("%Y%m%d")
+            elif weekday == 6:
+                friday = now - timedelta(days=2)
+                return friday.strftime("%Y%m%d")
+            else:
+                return now.strftime("%Y%m%d")
+        else:
+            if weekday == 0:
+                if hour < 9:
+                    friday = now - timedelta(days=3)
+                    return friday.strftime("%Y%m%d")
+                else:
+                    prev_day = now - timedelta(days=3)
+                    return prev_day.strftime("%Y%m%d")
+            elif weekday == 6:
+                friday = now - timedelta(days=2)
+                return friday.strftime("%Y%m%d")
+            elif weekday == 5:
+                friday = now - timedelta(days=1)
+                return friday.strftime("%Y%m%d")
+            else:
+                prev_day = now - timedelta(days=1)
+                return prev_day.strftime("%Y%m%d")
+    
+    def _try_fetch_margin_data(self) -> None:
+        """
+        尝试获取融资融券数据
+        每小时执行一次，直到获取到目标日期的数据
+        """
+        import akshare as ak
+        import pandas as pd
+        
+        target_date = self._get_target_margin_date()
+        now = datetime.now(BEIJING_TZ)
+        
+        logger.info(f"[Margin Fetch] 尝试获取融资融券数据 - 目标日期: {target_date}, 当前时间: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        try:
+            sz = ak.macro_china_market_margin_sz()
+            sh = ak.macro_china_market_margin_sh()
+            
+            sz_col = None
+            for col in sz.columns:
+                if "融资融券余额" in col:
+                    sz_col = col
+                    break
+            
+            sh_col = None
+            for col in sh.columns:
+                if "融资融券余额" in col:
+                    sh_col = col
+                    break
+            
+            if not sz_col or not sh_col:
+                logger.error("[Margin Fetch] 未找到融资融券余额列")
+                return
+            
+            sz["日期"] = pd.to_datetime(sz["日期"])
+            sh["日期"] = pd.to_datetime(sh["日期"])
+            
+            sz = sz.set_index("日期")
+            sh = sh.set_index("日期")
+            
+            merged = pd.DataFrame({
+                "sz": pd.to_numeric(sz[sz_col], errors="coerce"),
+                "sh": pd.to_numeric(sh[sh_col], errors="coerce"),
+            }).dropna()
+            
+            merged["total_margin"] = merged["sz"] + merged["sh"]
+            
+            latest_date = merged.index[-1].strftime("%Y%m%d")
+            latest_total = merged["total_margin"].iloc[-1]
+            
+            status = self.status.load()
+            
+            if latest_date == target_date:
+                if status.get("last_margin_date") != target_date:
+                    logger.info(f"[Margin Fetch] ✅ 成功获取目标日期数据: {latest_date}, 余额: {latest_total:,.0f}")
+                    
+                    status["last_margin_date"] = target_date
+                    status["last_margin_fetch_time"] = now.isoformat()
+                    status["last_margin_total"] = float(latest_total)
+                    self.status.save(status)
+                else:
+                    logger.info(f"[Margin Fetch] 目标日期数据已获取过: {target_date}")
+            else:
+                logger.info(f"[Margin Fetch] 数据源最新日期 {latest_date} 与目标日期 {target_date} 不匹配，等待更新...")
+                
+                if status.get("last_margin_date") != latest_date:
+                    status["last_margin_date"] = latest_date
+                    status["last_margin_fetch_time"] = now.isoformat()
+                    status["last_margin_total"] = float(latest_total)
+                    self.status.save(status)
+                    logger.info(f"[Margin Fetch] 记录数据源最新数据: {latest_date}")
+        
+        except Exception as e:
+            logger.error(f"[Margin Fetch] 获取融资融券数据失败: {e}")
+    
     def start(self) -> None:
         """Start the scheduler service"""
         logger.info("Starting Scheduler Service...")
         
         self.status.record_start()
         
-        trigger = CronTrigger(
+        report_trigger = CronTrigger(
             hour=SCHEDULE_HOUR,
             minute=SCHEDULE_MINUTE,
             timezone=BEIJING_TZ
@@ -397,12 +522,29 @@ class SchedulerService:
         
         self.scheduler.add_job(
             self.execute_report_generation,
-            trigger=trigger,
+            trigger=report_trigger,
             id='daily_report',
             name='Daily Market Sentiment Report',
             misfire_grace_time=3600,
             coalesce=True
         )
+        
+        if MARGIN_FETCH_ENABLED:
+            margin_trigger = CronTrigger(
+                minute=MARGIN_FETCH_MINUTE,
+                timezone=BEIJING_TZ
+            )
+            
+            self.scheduler.add_job(
+                self._try_fetch_margin_data,
+                trigger=margin_trigger,
+                id='margin_fetch',
+                name='Hourly Margin Data Fetch',
+                misfire_grace_time=1800,
+                coalesce=True
+            )
+            
+            logger.info("Margin data fetch enabled: hourly at minute 5")
         
         self.scheduler.start()
         self.running = True
@@ -414,7 +556,11 @@ class SchedulerService:
             logger.info(f"Scheduled job: {job.name}")
             logger.info(f"  Next run: {job.next_run_time.astimezone(BEIJING_TZ) if job.next_run_time else 'N/A'}")
         
-        logger.info(f"Scheduler started. Daily execution at {SCHEDULE_HOUR:02d}:{SCHEDULE_MINUTE:02d} Beijing Time")
+        logger.info(f"Scheduler started. Daily report at {SCHEDULE_HOUR:02d}:{SCHEDULE_MINUTE:02d} Beijing Time")
+        
+        if MARGIN_FETCH_ENABLED:
+            logger.info("Starting initial margin data fetch...")
+            self._try_fetch_margin_data()
         
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
@@ -457,10 +603,16 @@ class SchedulerService:
                     job.next_run_time.astimezone(BEIJING_TZ).isoformat()
                     if job.next_run_time else None
                 )
-                break
+            if job.id == 'margin_fetch':
+                status["margin_next_run"] = (
+                    job.next_run_time.astimezone(BEIJING_TZ).isoformat()
+                    if job.next_run_time else None
+                )
         
         status["scheduler_running"] = self.running
         status["beijing_time"] = datetime.now(BEIJING_TZ).isoformat()
+        status["margin_fetch_enabled"] = MARGIN_FETCH_ENABLED
+        status["target_margin_date"] = self._get_target_margin_date()
         
         return status
     
@@ -531,6 +683,18 @@ def print_status(status: Dict[str, Any]) -> None:
                         print(f"    Error: {details.get('error')}")
                 else:
                     print(f"  {channel}: {details}")
+    
+    print("\n--- Margin Data Fetch ---")
+    print(f"Enabled: {status.get('margin_fetch_enabled', False)}")
+    print(f"Target Date: {status.get('target_margin_date', 'N/A')}")
+    if status.get('last_margin_date'):
+        print(f"Last Fetched Date: {status.get('last_margin_date')}")
+        if status.get('last_margin_fetch_time'):
+            print(f"Fetch Time: {status.get('last_margin_fetch_time')}")
+        if status.get('last_margin_total'):
+            print(f"Total Margin: {status.get('last_margin_total'):,.0f}")
+    if status.get('margin_next_run'):
+        print(f"Next Fetch: {status.get('margin_next_run')}")
     
     print("\n" + "=" * 60)
 
