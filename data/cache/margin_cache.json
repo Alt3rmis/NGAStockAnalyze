@@ -1,0 +1,1045 @@
+{
+  "data": {
+    "20260227": {
+      "margin_balance": 1340872565672.0,
+      "short_balance": 11681950788.0
+    },
+    "20260226": {
+      "margin_balance": 1339956696186.0,
+      "short_balance": 11463801463.0
+    },
+    "20260225": {
+      "margin_balance": 1330832293401.0,
+      "short_balance": 11271469674.0
+    },
+    "20260224": {
+      "margin_balance": 1316886917013.0,
+      "short_balance": 11152634304.0
+    },
+    "20260213": {
+      "margin_balance": 1300667234815.0,
+      "short_balance": 10702614685.0
+    },
+    "20260212": {
+      "margin_balance": 1330447990665.0,
+      "short_balance": 10973101078.0
+    },
+    "20260211": {
+      "margin_balance": 1325946405377.0,
+      "short_balance": 11143065951.0
+    },
+    "20260210": {
+      "margin_balance": 1334739401256.0,
+      "short_balance": 11174333897.0
+    },
+    "20260209": {
+      "margin_balance": 1336256730195.0,
+      "short_balance": 11255429411.0
+    },
+    "20260206": {
+      "margin_balance": 1335857650715.0,
+      "short_balance": 11178678190.0
+    },
+    "20260205": {
+      "margin_balance": 1343476557854.0,
+      "short_balance": 11293088615.0
+    },
+    "20260204": {
+      "margin_balance": 1348431797776.0,
+      "short_balance": 11433418454.0
+    },
+    "20260203": {
+      "margin_balance": 1357388113443.0,
+      "short_balance": 11195196119.0
+    },
+    "20260202": {
+      "margin_balance": 1361751136143.0,
+      "short_balance": 11112308537.0
+    },
+    "20260130": {
+      "margin_balance": 1362922122502.0,
+      "short_balance": 11189348007.0
+    },
+    "20260129": {
+      "margin_balance": 1376413497488.0,
+      "short_balance": 11520843006.0
+    },
+    "20260128": {
+      "margin_balance": 1379075454676.0,
+      "short_balance": 11682732603.0
+    },
+    "20260127": {
+      "margin_balance": 1365540768782.0,
+      "short_balance": 11721291502.0
+    },
+    "20260126": {
+      "margin_balance": 1366798503378.0,
+      "short_balance": 11703621424.0
+    },
+    "20260123": {
+      "margin_balance": 1365416506544.0,
+      "short_balance": 11621093846.0
+    },
+    "20260122": {
+      "margin_balance": 1365143170716.0,
+      "short_balance": 11651406916.0
+    },
+    "20260121": {
+      "margin_balance": 1362861930351.0,
+      "short_balance": 11745714324.0
+    },
+    "20260120": {
+      "margin_balance": 1352775686018.0,
+      "short_balance": 11719542713.0
+    },
+    "20260119": {
+      "margin_balance": 1360663928801.0,
+      "short_balance": 11525309862.0
+    },
+    "20260116": {
+      "margin_balance": 1361765598205.0,
+      "short_balance": 11432169606.0
+    },
+    "20260115": {
+      "margin_balance": 1348708301293.0,
+      "short_balance": 11721800689.0
+    },
+    "20260114": {
+      "margin_balance": 1339530229868.0,
+      "short_balance": 11779589771.0
+    },
+    "20260113": {
+      "margin_balance": 1331269993389.0,
+      "short_balance": 11830654874.0
+    },
+    "20260112": {
+      "margin_balance": 1327919906814.0,
+      "short_balance": 12155096952.0
+    },
+    "20260109": {
+      "margin_balance": 1309333101994.0,
+      "short_balance": 11879652817.0
+    },
+    "20260108": {
+      "margin_balance": 1306006162278.0,
+      "short_balance": 11751757827.0
+    },
+    "20260107": {
+      "margin_balance": 1298214640818.0,
+      "short_balance": 11795753345.0
+    },
+    "20260106": {
+      "margin_balance": 1285898834239.0,
+      "short_balance": 11806039951.0
+    },
+    "20260105": {
+      "margin_balance": 1277035784652.0,
+      "short_balance": 11565954586.0
+    },
+    "20251231": {
+      "margin_balance": 1268796062622.0,
+      "short_balance": 11119490800.0
+    },
+    "20251230": {
+      "margin_balance": 1278285296119.0,
+      "short_balance": 11218962939.0
+    },
+    "20251229": {
+      "margin_balance": 1273965468535.0,
+      "short_balance": 11297381025.0
+    },
+    "20251226": {
+      "margin_balance": 1271086234902.0,
+      "short_balance": 11291094953.0
+    },
+    "20251225": {
+      "margin_balance": 1273352376369.0,
+      "short_balance": 11360359465.0
+    },
+    "20251224": {
+      "margin_balance": 1275596245962.0,
+      "short_balance": 11380800888.0
+    },
+    "20251223": {
+      "margin_balance": 1271201780307.0,
+      "short_balance": 11344865711.0
+    },
+    "20251222": {
+      "margin_balance": 1263436859867.0,
+      "short_balance": 11295366180.0
+    },
+    "20251219": {
+      "margin_balance": 1257616065098.0,
+      "short_balance": 11123541010.0
+    },
+    "20251218": {
+      "margin_balance": 1255433608103.0,
+      "short_balance": 11210689149.0
+    },
+    "20251217": {
+      "margin_balance": 1259774699017.0,
+      "short_balance": 11239788760.0
+    },
+    "20251216": {
+      "margin_balance": 1261042135620.0,
+      "short_balance": 11069092787.0
+    },
+    "20251215": {
+      "margin_balance": 1255499323207.0,
+      "short_balance": 11325818178.0
+    },
+    "20251212": {
+      "margin_balance": 1252369646071.0,
+      "short_balance": 11858586110.0
+    },
+    "20251211": {
+      "margin_balance": 1257022621848.0,
+      "short_balance": 12005562207.0
+    },
+    "20251210": {
+      "margin_balance": 1258675029684.0,
+      "short_balance": 12034005651.0
+    },
+    "20251209": {
+      "margin_balance": 1258550150923.0,
+      "short_balance": 11857654459.0
+    },
+    "20251208": {
+      "margin_balance": 1254466290886.0,
+      "short_balance": 11960306051.0
+    },
+    "20251205": {
+      "margin_balance": 1246300715403.0,
+      "short_balance": 11845199886.0
+    },
+    "20251204": {
+      "margin_balance": 1247616304027.0,
+      "short_balance": 11737787385.0
+    },
+    "20251203": {
+      "margin_balance": 1246989558940.0,
+      "short_balance": 11760574781.0
+    },
+    "20251202": {
+      "margin_balance": 1248727375910.0,
+      "short_balance": 11878288335.0
+    },
+    "20251201": {
+      "margin_balance": 1248616676210.0,
+      "short_balance": 11930431528.0
+    },
+    "20251128": {
+      "margin_balance": 1243334608699.0,
+      "short_balance": 11501110264.0
+    },
+    "20251127": {
+      "margin_balance": 1243317159526.0,
+      "short_balance": 11422801182.0
+    },
+    "20251126": {
+      "margin_balance": 1242823709564.0,
+      "short_balance": 11427216135.0
+    },
+    "20251125": {
+      "margin_balance": 1240398370695.0,
+      "short_balance": 11183459220.0
+    },
+    "20251124": {
+      "margin_balance": 1239032782361.0,
+      "short_balance": 10950405598.0
+    },
+    "20251121": {
+      "margin_balance": 1239681215625.0,
+      "short_balance": 10925457858.0
+    },
+    "20251120": {
+      "margin_balance": 1251906950837.0,
+      "short_balance": 11648247823.0
+    },
+    "20251119": {
+      "margin_balance": 1257008488721.0,
+      "short_balance": 11946062490.0
+    },
+    "20251118": {
+      "margin_balance": 1260313161359.0,
+      "short_balance": 12078930346.0
+    },
+    "20251117": {
+      "margin_balance": 1257015227419.0,
+      "short_balance": 12249078833.0
+    },
+    "20251114": {
+      "margin_balance": 1253180360926.0,
+      "short_balance": 12280549346.0
+    },
+    "20251113": {
+      "margin_balance": 1258607971942.0,
+      "short_balance": 12533776032.0
+    },
+    "20251112": {
+      "margin_balance": 1260874320120.0,
+      "short_balance": 12405545871.0
+    },
+    "20251111": {
+      "margin_balance": 1263197439228.0,
+      "short_balance": 12367387168.0
+    },
+    "20251110": {
+      "margin_balance": 1259999647179.0,
+      "short_balance": 12521708552.0
+    },
+    "20251107": {
+      "margin_balance": 1256749257881.0,
+      "short_balance": 12421627048.0
+    },
+    "20251106": {
+      "margin_balance": 1261172891066.0,
+      "short_balance": 12508894750.0
+    },
+    "20251105": {
+      "margin_balance": 1254887414434.0,
+      "short_balance": 12261868142.0
+    },
+    "20251104": {
+      "margin_balance": 1254595845948.0,
+      "short_balance": 12271274643.0
+    },
+    "20251103": {
+      "margin_balance": 1255284930321.0,
+      "short_balance": 12066303628.0
+    },
+    "20251031": {
+      "margin_balance": 1249924363716.0,
+      "short_balance": 11818501517.0
+    },
+    "20251030": {
+      "margin_balance": 1253578067034.0,
+      "short_balance": 12160865938.0
+    },
+    "20251029": {
+      "margin_balance": 1257413401254.0,
+      "short_balance": 12260661695.0
+    },
+    "20251028": {
+      "margin_balance": 1252496637936.0,
+      "short_balance": 12119340364.0
+    },
+    "20251027": {
+      "margin_balance": 1246506855788.0,
+      "short_balance": 12093033390.0
+    },
+    "20251024": {
+      "margin_balance": 1235000302822.0,
+      "short_balance": 11893959637.0
+    },
+    "20251023": {
+      "margin_balance": 1232014143922.0,
+      "short_balance": 11776335634.0
+    },
+    "20251022": {
+      "margin_balance": 1233014133480.0,
+      "short_balance": 11570949941.0
+    },
+    "20251021": {
+      "margin_balance": 1228525092925.0,
+      "short_balance": 11675975979.0
+    },
+    "20251020": {
+      "margin_balance": 1222028591866.0,
+      "short_balance": 11595049315.0
+    },
+    "20251017": {
+      "margin_balance": 1224047953848.0,
+      "short_balance": 11452181650.0
+    },
+    "20251016": {
+      "margin_balance": 1237780502057.0,
+      "short_balance": 11822065473.0
+    },
+    "20251015": {
+      "margin_balance": 1236365992629.0,
+      "short_balance": 11675165490.0
+    },
+    "20251014": {
+      "margin_balance": 1234622701292.0,
+      "short_balance": 11629291378.0
+    },
+    "20251013": {
+      "margin_balance": 1233642293902.0,
+      "short_balance": 11407824528.0
+    },
+    "20251010": {
+      "margin_balance": 1230684574757.0,
+      "short_balance": 11074528136.0
+    },
+    "20251009": {
+      "margin_balance": 1233249540315.0,
+      "short_balance": 11162566260.0
+    },
+    "20250930": {
+      "margin_balance": 1208617882705.0,
+      "short_balance": 10775404475.0
+    },
+    "20250929": {
+      "margin_balance": 1223395169661.0,
+      "short_balance": 11103698547.0
+    },
+    "20250926": {
+      "margin_balance": 1218854850267.0,
+      "short_balance": 11207460760.0
+    },
+    "20250925": {
+      "margin_balance": 1230143924167.0,
+      "short_balance": 11614380252.0
+    },
+    "20250924": {
+      "margin_balance": 1223547870961.0,
+      "short_balance": 11643858035.0
+    },
+    "20250923": {
+      "margin_balance": 1216573602443.0,
+      "short_balance": 11451646974.0
+    },
+    "20250922": {
+      "margin_balance": 1218337102598.0,
+      "short_balance": 11363249668.0
+    },
+    "20250919": {
+      "margin_balance": 1207639982663.0,
+      "short_balance": 11313305187.0
+    },
+    "20250918": {
+      "margin_balance": 1209224986941.0,
+      "short_balance": 11453319865.0
+    },
+    "20250917": {
+      "margin_balance": 1209726836235.0,
+      "short_balance": 11672528879.0
+    },
+    "20250916": {
+      "margin_balance": 1205855997868.0,
+      "short_balance": 11587827777.0
+    },
+    "20250915": {
+      "margin_balance": 1193651838103.0,
+      "short_balance": 11514261220.0
+    },
+    "20250912": {
+      "margin_balance": 1183985455849.0,
+      "short_balance": 11447903131.0
+    },
+    "20250911": {
+      "margin_balance": 1176441846643.0,
+      "short_balance": 11523946846.0
+    },
+    "20250910": {
+      "margin_balance": 1173348380718.0,
+      "short_balance": 11323946475.0
+    },
+    "20250909": {
+      "margin_balance": 1171038610850.0,
+      "short_balance": 11214394246.0
+    },
+    "20250908": {
+      "margin_balance": 1166259101553.0,
+      "short_balance": 11069632529.0
+    },
+    "20250905": {
+      "margin_balance": 1155650042274.0,
+      "short_balance": 10834174579.0
+    },
+    "20250904": {
+      "margin_balance": 1152873400598.0,
+      "short_balance": 10604655570.0
+    },
+    "20250903": {
+      "margin_balance": 1157433653512.0,
+      "short_balance": 11025400826.0
+    },
+    "20250902": {
+      "margin_balance": 1158103408143.0,
+      "short_balance": 11156698124.0
+    },
+    "20250901": {
+      "margin_balance": 1160569079901.0,
+      "short_balance": 11199402381.0
+    },
+    "20250829": {
+      "margin_balance": 1140926430398.0,
+      "short_balance": 11009642468.0
+    },
+    "20250828": {
+      "margin_balance": 1132570872138.0,
+      "short_balance": 10692466446.0
+    },
+    "20250827": {
+      "margin_balance": 1123366079378.0,
+      "short_balance": 10487404945.0
+    },
+    "20250826": {
+      "margin_balance": 1111818503020.0,
+      "short_balance": 10728914966.0
+    },
+    "20250825": {
+      "margin_balance": 1101191689087.0,
+      "short_balance": 10700072404.0
+    },
+    "20250822": {
+      "margin_balance": 1084422264740.0,
+      "short_balance": 10414986677.0
+    },
+    "20250821": {
+      "margin_balance": 1078533040383.0,
+      "short_balance": 10416299107.0
+    },
+    "20250820": {
+      "margin_balance": 1081643142709.0,
+      "short_balance": 10181736990.0
+    },
+    "20250819": {
+      "margin_balance": 1073793365520.0,
+      "short_balance": 9798001512.0
+    },
+    "20250818": {
+      "margin_balance": 1057181453687.0,
+      "short_balance": 9830780399.0
+    },
+    "20250815": {
+      "margin_balance": 1037756675565.0,
+      "short_balance": 9729385016.0
+    },
+    "20250814": {
+      "margin_balance": 1033902792626.0,
+      "short_balance": 9839810411.0
+    },
+    "20250813": {
+      "margin_balance": 1029063342369.0,
+      "short_balance": 9823615226.0
+    },
+    "20250812": {
+      "margin_balance": 1025570739113.0,
+      "short_balance": 9885488624.0
+    },
+    "20250811": {
+      "margin_balance": 1021792143441.0,
+      "short_balance": 9747748407.0
+    },
+    "20250808": {
+      "margin_balance": 1012720239760.0,
+      "short_balance": 9939215366.0
+    },
+    "20250807": {
+      "margin_balance": 1013801673272.0,
+      "short_balance": 9967062084.0
+    },
+    "20250806": {
+      "margin_balance": 1013209625471.0,
+      "short_balance": 9856426980.0
+    },
+    "20250805": {
+      "margin_balance": 1009444473177.0,
+      "short_balance": 9782498389.0
+    },
+    "20250804": {
+      "margin_balance": 1005089414853.0,
+      "short_balance": 9632775597.0
+    },
+    "20250801": {
+      "margin_balance": 998672967968.0,
+      "short_balance": 9515301212.0
+    },
+    "20250731": {
+      "margin_balance": 1000962510610.0,
+      "short_balance": 9679217234.0
+    },
+    "20250730": {
+      "margin_balance": 1001228435294.0,
+      "short_balance": 9967863343.0
+    },
+    "20250729": {
+      "margin_balance": 1000835545965.0,
+      "short_balance": 9969780284.0
+    },
+    "20250728": {
+      "margin_balance": 989896449187.0,
+      "short_balance": 9732031594.0
+    },
+    "20250725": {
+      "margin_balance": 978189855705.0,
+      "short_balance": 9447821049.0
+    },
+    "20250724": {
+      "margin_balance": 973054656825.0,
+      "short_balance": 9481188848.0
+    },
+    "20250723": {
+      "margin_balance": 970692921044.0,
+      "short_balance": 9457345282.0
+    },
+    "20250722": {
+      "margin_balance": 969571695398.0,
+      "short_balance": 9537572924.0
+    },
+    "20250721": {
+      "margin_balance": 959608797230.0,
+      "short_balance": 9301776577.0
+    },
+    "20250718": {
+      "margin_balance": 952191948293.0,
+      "short_balance": 9170013483.0
+    },
+    "20250717": {
+      "margin_balance": 952872205457.0,
+      "short_balance": 9231401372.0
+    },
+    "20250716": {
+      "margin_balance": 950076970726.0,
+      "short_balance": 9160999490.0
+    },
+    "20250715": {
+      "margin_balance": 945528632364.0,
+      "short_balance": 9192915184.0
+    },
+    "20250714": {
+      "margin_balance": 942837358485.0,
+      "short_balance": 9132049320.0
+    },
+    "20250711": {
+      "margin_balance": 937752116945.0,
+      "short_balance": 9242498493.0
+    },
+    "20250710": {
+      "margin_balance": 935691412605.0,
+      "short_balance": 9296074858.0
+    },
+    "20250709": {
+      "margin_balance": 932960493605.0,
+      "short_balance": 9172919906.0
+    },
+    "20250708": {
+      "margin_balance": 931076466397.0,
+      "short_balance": 9200540155.0
+    },
+    "20250707": {
+      "margin_balance": 928827818949.0,
+      "short_balance": 9180230317.0
+    },
+    "20250704": {
+      "margin_balance": 925702841567.0,
+      "short_balance": 9105204865.0
+    },
+    "20250703": {
+      "margin_balance": 928887433388.0,
+      "short_balance": 8963008315.0
+    },
+    "20250702": {
+      "margin_balance": 928080643653.0,
+      "short_balance": 8865272383.0
+    },
+    "20250701": {
+      "margin_balance": 926895132373.0,
+      "short_balance": 8931368943.0
+    },
+    "20250630": {
+      "margin_balance": 925418708645.0,
+      "short_balance": 8621801759.0
+    },
+    "20250627": {
+      "margin_balance": 921606906801.0,
+      "short_balance": 8376524763.0
+    },
+    "20250626": {
+      "margin_balance": 920244377739.0,
+      "short_balance": 8386990239.0
+    },
+    "20250625": {
+      "margin_balance": 916809346278.0,
+      "short_balance": 8438666097.0
+    },
+    "20250624": {
+      "margin_balance": 914622047518.0,
+      "short_balance": 8229518174.0
+    },
+    "20250623": {
+      "margin_balance": 913051422559.0,
+      "short_balance": 8327235255.0
+    },
+    "20250620": {
+      "margin_balance": 911053174880.0,
+      "short_balance": 8174403547.0
+    },
+    "20250619": {
+      "margin_balance": 915255863687.0,
+      "short_balance": 8278758667.0
+    },
+    "20250618": {
+      "margin_balance": 920011904287.0,
+      "short_balance": 8496734325.0
+    },
+    "20250617": {
+      "margin_balance": 919989046739.0,
+      "short_balance": 8526474908.0
+    },
+    "20250616": {
+      "margin_balance": 916289694734.0,
+      "short_balance": 8694745051.0
+    },
+    "20250613": {
+      "margin_balance": 912955300781.0,
+      "short_balance": 8717096796.0
+    },
+    "20250612": {
+      "margin_balance": 915167037266.0,
+      "short_balance": 8738910274.0
+    },
+    "20250611": {
+      "margin_balance": 913354209893.0,
+      "short_balance": 8705098242.0
+    },
+    "20250610": {
+      "margin_balance": 912341653816.0,
+      "short_balance": 8651809137.0
+    },
+    "20250609": {
+      "margin_balance": 911410866748.0,
+      "short_balance": 8673571487.0
+    },
+    "20250606": {
+      "margin_balance": 907272972139.0,
+      "short_balance": 8593348281.0
+    },
+    "20250605": {
+      "margin_balance": 909498147688.0,
+      "short_balance": 8530358676.0
+    },
+    "20250604": {
+      "margin_balance": 907551168910.0,
+      "short_balance": 8359277707.0
+    },
+    "20250603": {
+      "margin_balance": 906539733658.0,
+      "short_balance": 8226185192.0
+    },
+    "20250530": {
+      "margin_balance": 905065691813.0,
+      "short_balance": 8182806726.0
+    },
+    "20250529": {
+      "margin_balance": 908382726705.0,
+      "short_balance": 8209656018.0
+    },
+    "20250528": {
+      "margin_balance": 909986392086.0,
+      "short_balance": 8264348222.0
+    },
+    "20250527": {
+      "margin_balance": 910228044137.0,
+      "short_balance": 8241999591.0
+    },
+    "20250526": {
+      "margin_balance": 907963207363.0,
+      "short_balance": 8254069231.0
+    },
+    "20250523": {
+      "margin_balance": 905471558442.0,
+      "short_balance": 8365742275.0
+    },
+    "20250522": {
+      "margin_balance": 907535824938.0,
+      "short_balance": 8471463200.0
+    },
+    "20250521": {
+      "margin_balance": 908672788726.0,
+      "short_balance": 8531923242.0
+    },
+    "20250520": {
+      "margin_balance": 909602494527.0,
+      "short_balance": 8417228699.0
+    },
+    "20250519": {
+      "margin_balance": 909657468124.0,
+      "short_balance": 8274438702.0
+    },
+    "20250516": {
+      "margin_balance": 907427084606.0,
+      "short_balance": 8032718566.0
+    },
+    "20250515": {
+      "margin_balance": 908349137943.0,
+      "short_balance": 8172820508.0
+    },
+    "20250514": {
+      "margin_balance": 909505314379.0,
+      "short_balance": 8304628559.0
+    },
+    "20250513": {
+      "margin_balance": 909632087491.0,
+      "short_balance": 8203735513.0
+    },
+    "20250512": {
+      "margin_balance": 909791926143.0,
+      "short_balance": 8092713389.0
+    },
+    "20250509": {
+      "margin_balance": 909217878305.0,
+      "short_balance": 7993960955.0
+    },
+    "20250508": {
+      "margin_balance": 911157862069.0,
+      "short_balance": 7986207629.0
+    },
+    "20250507": {
+      "margin_balance": 911175339517.0,
+      "short_balance": 7888307915.0
+    },
+    "20250506": {
+      "margin_balance": 908236842318.0,
+      "short_balance": 7780283264.0
+    },
+    "20250430": {
+      "margin_balance": 902297294171.0,
+      "short_balance": 7478607804.0
+    },
+    "20250429": {
+      "margin_balance": 910476190696.0,
+      "short_balance": 7562000144.0
+    },
+    "20250428": {
+      "margin_balance": 910621691549.0,
+      "short_balance": 7701073161.0
+    },
+    "20250425": {
+      "margin_balance": 909951876584.0,
+      "short_balance": 7704831867.0
+    },
+    "20250424": {
+      "margin_balance": 913255772009.0,
+      "short_balance": 7869330873.0
+    },
+    "20250423": {
+      "margin_balance": 914825452131.0,
+      "short_balance": 7831450388.0
+    },
+    "20250422": {
+      "margin_balance": 914550232887.0,
+      "short_balance": 7946903343.0
+    },
+    "20250421": {
+      "margin_balance": 916757890120.0,
+      "short_balance": 7838193327.0
+    },
+    "20250418": {
+      "margin_balance": 913644906996.0,
+      "short_balance": 7741536987.0
+    },
+    "20250417": {
+      "margin_balance": 916979946296.0,
+      "short_balance": 7752806362.0
+    },
+    "20250416": {
+      "margin_balance": 919159004275.0,
+      "short_balance": 7840287938.0
+    },
+    "20250415": {
+      "margin_balance": 922346969118.0,
+      "short_balance": 7878874375.0
+    },
+    "20250414": {
+      "margin_balance": 922753835196.0,
+      "short_balance": 7861791225.0
+    },
+    "20250411": {
+      "margin_balance": 918221823420.0,
+      "short_balance": 7557579540.0
+    },
+    "20250410": {
+      "margin_balance": 920719496266.0,
+      "short_balance": 7564150459.0
+    },
+    "20250409": {
+      "margin_balance": 919376233259.0,
+      "short_balance": 7237712208.0
+    },
+    "20250408": {
+      "margin_balance": 921356014088.0,
+      "short_balance": 7162980259.0
+    },
+    "20250407": {
+      "margin_balance": 939658581632.0,
+      "short_balance": 6803925316.0
+    },
+    "20250403": {
+      "margin_balance": 958806215111.0,
+      "short_balance": 7531452299.0
+    },
+    "20250402": {
+      "margin_balance": 963373933304.0,
+      "short_balance": 7604838679.0
+    },
+    "20250401": {
+      "margin_balance": 964915147379.0,
+      "short_balance": 7594645817.0
+    },
+    "20250331": {
+      "margin_balance": 967026910148.0,
+      "short_balance": 7476693793.0
+    },
+    "20250328": {
+      "margin_balance": 967213232779.0,
+      "short_balance": 7470481196.0
+    },
+    "20250327": {
+      "margin_balance": 968417545674.0,
+      "short_balance": 7663100195.0
+    },
+    "20250326": {
+      "margin_balance": 969473222868.0,
+      "short_balance": 7615840734.0
+    },
+    "20250325": {
+      "margin_balance": 968943026169.0,
+      "short_balance": 7653780592.0
+    },
+    "20250324": {
+      "margin_balance": 969786080222.0,
+      "short_balance": 7541942269.0
+    },
+    "20250321": {
+      "margin_balance": 971655569946.0,
+      "short_balance": 7587577611.0
+    },
+    "20250320": {
+      "margin_balance": 976925908288.0,
+      "short_balance": 7858725646.0
+    },
+    "20250319": {
+      "margin_balance": 974998389156.0,
+      "short_balance": 8009325780.0
+    },
+    "20250318": {
+      "margin_balance": 974837417875.0,
+      "short_balance": 8067587178.0
+    },
+    "20250317": {
+      "margin_balance": 971314793092.0,
+      "short_balance": 8277178377.0
+    },
+    "20250314": {
+      "margin_balance": 967761631056.0,
+      "short_balance": 8216816871.0
+    },
+    "20250313": {
+      "margin_balance": 968166630947.0,
+      "short_balance": 8112412959.0
+    },
+    "20250312": {
+      "margin_balance": 970925278485.0,
+      "short_balance": 8174331622.0
+    },
+    "20250311": {
+      "margin_balance": 965795797513.0,
+      "short_balance": 8123259995.0
+    },
+    "20250310": {
+      "margin_balance": 965980054878.0,
+      "short_balance": 7983108068.0
+    },
+    "20250307": {
+      "margin_balance": 961683902616.0,
+      "short_balance": 7921937248.0
+    },
+    "20250306": {
+      "margin_balance": 965326732669.0,
+      "short_balance": 7975582960.0
+    },
+    "20250305": {
+      "margin_balance": 959407691107.0,
+      "short_balance": 7823930326.0
+    },
+    "20250304": {
+      "margin_balance": 959104687354.0,
+      "short_balance": 7616965846.0
+    },
+    "20250303": {
+      "margin_balance": 959710302382.0,
+      "short_balance": 7467808538.0
+    },
+    "20250228": {
+      "margin_balance": 960907206926.0,
+      "short_balance": 7437464582.0
+    },
+    "20250227": {
+      "margin_balance": 967908224325.0,
+      "short_balance": 7819874428.0
+    },
+    "20250226": {
+      "margin_balance": 968281688463.0,
+      "short_balance": 7791601017.0
+    },
+    "20250225": {
+      "margin_balance": 963879747065.0,
+      "short_balance": 7630163667.0
+    },
+    "20250224": {
+      "margin_balance": 960817195447.0,
+      "short_balance": 7696499601.0
+    },
+    "20250221": {
+      "margin_balance": 956706096115.0,
+      "short_balance": 7577570831.0
+    },
+    "20250220": {
+      "margin_balance": 953302647173.0,
+      "short_balance": 7511526974.0
+    },
+    "20250219": {
+      "margin_balance": 950398196565.0,
+      "short_balance": 7335347322.0
+    },
+    "20250218": {
+      "margin_balance": 945424585208.0,
+      "short_balance": 7260409386.0
+    },
+    "20250217": {
+      "margin_balance": 949158718589.0,
+      "short_balance": 7548763546.0
+    },
+    "20250214": {
+      "margin_balance": 941352939939.0,
+      "short_balance": 7370919487.0
+    },
+    "20250213": {
+      "margin_balance": 940585522678.0,
+      "short_balance": 7552674042.0
+    },
+    "20250212": {
+      "margin_balance": 941142844137.0,
+      "short_balance": 7554332159.0
+    },
+    "20250211": {
+      "margin_balance": 939146823237.0,
+      "short_balance": 7387044509.0
+    },
+    "20250210": {
+      "margin_balance": 936541604647.0,
+      "short_balance": 7242119013.0
+    },
+    "20250207": {
+      "margin_balance": 928035285866.0,
+      "short_balance": 7040564156.0
+    },
+    "20250206": {
+      "margin_balance": 923656820579.0,
+      "short_balance": 6814698903.0
+    },
+    "20250205": {
+      "margin_balance": 917392767343.0,
+      "short_balance": 6613023309.0
+    },
+    "20250127": {
+      "margin_balance": 906836932381.0,
+      "short_balance": 6487615579.0
+    }
+  },
+  "last_update": "2026-03-02T22:56:46.998758"
+}

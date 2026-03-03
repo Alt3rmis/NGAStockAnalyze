@@ -1,0 +1,178 @@
+[
+  {
+    "timestamp": "2026-03-02T23:01:33.697496",
+    "train_period": [
+      "20251222",
+      "20260202"
+    ],
+    "val_period": [
+      "20260203",
+      "20260210"
+    ],
+    "test_period": [
+      "20260211",
+      "20260227"
+    ],
+    "best_params": {
+      "weights": {
+        "margin": 1.0,
+        "if_main": 1.0,
+        "im_main": 1.0,
+        "lhb": 1.0,
+        "limitup": 1.0,
+        "external": 0.1
+      },
+      "thresholds": {
+        "strong_ratio": 2.0,
+        "opening_high": 0.3,
+        "opening_low": -0.3
+      },
+      "market_state": {
+        "bull": {
+          "margin": 1.2,
+          "if_main": 0.8,
+          "im_main": 1.3,
+          "lhb": 1.2,
+          "limitup": 1.3,
+          "external": 0.1
+        },
+        "bear": {
+          "margin": 1.3,
+          "if_main": 1.3,
+          "im_main": 0.8,
+          "lhb": 0.8,
+          "limitup": 0.7,
+          "external": 0.15
+        }
+      }
+    },
+    "train_score": 55.172413793103445,
+    "val_score": 15.0,
+    "test_score": 12.857142857142856,
+    "improvement": 0.0,
+    "iterations": 40
+  },
+  {
+    "timestamp": "2026-03-02T23:01:53.909197",
+    "train_period": [
+      "20251222",
+      "20260202"
+    ],
+    "val_period": [
+      "20260203",
+      "20260210"
+    ],
+    "test_period": [
+      "20260211",
+      "20260227"
+    ],
+    "best_params": {
+      "weights": {
+        "margin": 1.0,
+        "if_main": 1.0,
+        "im_main": 1.0,
+        "lhb": 1.0,
+        "limitup": 1.0,
+        "external": 0.1
+      },
+      "thresholds": {
+        "strong_ratio": 2.0,
+        "opening_high": 0.3,
+        "opening_low": -0.3
+      },
+      "market_state": {
+        "bull": {
+          "margin": 1.2,
+          "if_main": 0.8,
+          "im_main": 1.3,
+          "lhb": 1.2,
+          "limitup": 1.3,
+          "external": 0.1
+        },
+        "bear": {
+          "margin": 1.3,
+          "if_main": 1.3,
+          "im_main": 0.8,
+          "lhb": 0.8,
+          "limitup": 0.7,
+          "external": 0.15
+        }
+      }
+    },
+    "train_score": 55.172413793103445,
+    "val_score": 15.0,
+    "test_score": 12.857142857142856,
+    "improvement": 0.0,
+    "iterations": 40
+  },
+  {
+    "timestamp": "2026-03-02T23:25:51.820274",
+    "train_period": [
+      "20251222",
+      "20260202"
+    ],
+    "val_period": [
+      "20260203",
+      "20260210"
+    ],
+    "test_period": [
+      "20260211",
+      "20260227"
+    ],
+    "best_params": {
+      "weights": {
+        "margin": 1.65,
+        "if_main": 1.45,
+        "im_main": 0.65,
+        "lhb": 1.24,
+        "limitup": 0.7,
+        "external": 0.26
+      },
+      "thresholds": {
+        "strong_ratio": 2.49,
+        "opening_high": 0.3,
+        "opening_low": -0.3
+      }
+    },
+    "train_score": 55.172413793103445,
+    "val_score": 15.0,
+    "test_score": 21.428571428571427,
+    "improvement": 15.714285714285715,
+    "iterations": 40
+  },
+  {
+    "timestamp": "2026-03-03T00:18:50.520530",
+    "train_period": [
+      "20250310",
+      "20251110"
+    ],
+    "val_period": [
+      "20251111",
+      "20251229"
+    ],
+    "test_period": [
+      "20251230",
+      "20260227"
+    ],
+    "best_params": {
+      "weights": {
+        "margin": 1.5,
+        "if_main": 1.0,
+        "im_main": 1.5,
+        "lhb": 1.5,
+        "limitup": 1.5,
+        "external": 0.25
+      },
+      "thresholds": {
+        "strong_ratio": 3.0,
+        "opening_high": 0.3,
+        "opening_low": -0.3
+      }
+    },
+    "train_score": 35.57575757575758,
+    "val_score": 35.42857142857143,
+    "test_score": 36.11111111111111,
+    "improvement": 6.388888888888886,
+    "iterations": 40
+  }
+]

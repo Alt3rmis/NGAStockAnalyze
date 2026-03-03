@@ -15,6 +15,7 @@ on:
         options:
           - staging
           - production
+sudo chown -R $deploy-nga:$USER /opt/NGAStockAnalyze
 
 env:
   PYTHON_VERSION: '3.11'

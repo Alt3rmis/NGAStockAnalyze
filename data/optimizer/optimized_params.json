@@ -1,0 +1,15 @@
+{
+  "weights": {
+    "margin": 1.5,
+    "if_main": 1.0,
+    "im_main": 1.5,
+    "lhb": 1.5,
+    "limitup": 1.5,
+    "external": 0.25
+  },
+  "thresholds": {
+    "strong_ratio": 3.0,
+    "opening_high": 0.3,
+    "opening_low": -0.3
+  }
+}

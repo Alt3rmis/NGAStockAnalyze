@@ -1,0 +1,11 @@
+{
+  "date": "20260303",
+  "opening_pred": "低开",
+  "confidence": "中",
+  "strategy": "震荡市",
+  "strategy_reason": "多空信号分歧，等待方向明确",
+  "long_score": 1.525,
+  "short_score": 2.5,
+  "env_score": 0,
+  "conclusion": "震荡/分歧"
+}

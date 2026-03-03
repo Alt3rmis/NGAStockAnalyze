@@ -24,6 +24,19 @@ from src.data_logger import (
     DataLogger, FileArchiver, init_directories, 
     LOGS_DIR, RESULTS_DIR, DATA_LOGS_DIR, ARCHIVE_DIR
 )
+from src.review_demo import (
+    PredictionRecord, save_prediction, load_prediction,
+    get_previous_trade_date, perform_review, get_review_history_stats,
+    format_review_report
+)
+from src.adaptive_scorer import (
+    get_adaptive_weights, calculate_adaptive_scores,
+    update_metric_history_from_review, format_adaptive_weights_report
+)
+from src.parameter_optimizer import (
+    run_optimization, should_run_optimization, get_current_params,
+    OptimizationResult
+)
 
 BEIJING_TZ = timezone(timedelta(hours=8))
 
@@ -338,8 +351,27 @@ def fetch_all_data(date_str: str) -> Dict[str, Any]:
     return data
 
 
-def calculate_scores(data: Dict[str, Any]) -> Dict[str, float]:
-    """计算多空分数"""
+def calculate_scores(data: Dict[str, Any], use_adaptive: bool = True) -> Tuple[Dict[str, float], Optional[Any]]:
+    """
+    计算多空分数
+    
+    Args:
+        data: 市场数据
+        use_adaptive: 是否使用自适应权重
+    
+    Returns:
+        (分数字典, 自适应权重配置对象)
+    """
+    adaptive_weights = None
+    
+    if use_adaptive:
+        try:
+            adaptive_weights = get_adaptive_weights(data)
+            return calculate_adaptive_scores(data, adaptive_weights), adaptive_weights
+        except Exception as e:
+            main_logger = get_main_logger()
+            main_logger.warning(f"自适应权重计算失败，使用默认权重: {e}")
+    
     scores = {"long": 0.0, "short": 0.0}
     
     score_rules = [
@@ -372,7 +404,7 @@ def calculate_scores(data: Dict[str, Any]) -> Dict[str, float]:
         elif pct < 0:
             scores["short"] += w
     
-    return scores
+    return scores, adaptive_weights
 
 
 def predict_market_opening(scores: Dict[str, float], data: Dict[str, Any]) -> Dict[str, str]:
@@ -505,13 +537,56 @@ class ReportGenerator:
         return "\n".join(self.lines)
 
 
-def generate_report(data: Dict, scores: Dict, sectors: Dict, date_str: str, opening_pred: Dict) -> Tuple[str, str]:
+def save_current_prediction(date_str: str, scores: Dict, opening_pred: Dict, data: Dict):
+    """
+    保存当前预测记录，供次日复盘验证使用
+    
+    Args:
+        date_str: 分析日期
+        scores: 多空分数
+        opening_pred: 开盘预测
+        data: 原始数据
+    """
+    limitup = data.get("limitup", {})
+    env_score = limitup.get("env_score", 0) if "error" not in limitup else 0
+    
+    if scores['long'] >= Config.Scoring.STRONG_RATIO * scores['short']:
+        conclusion = "多方占优"
+    elif scores['short'] >= Config.Scoring.STRONG_RATIO * scores['long']:
+        conclusion = "空方占优"
+    else:
+        conclusion = "震荡/分歧"
+    
+    record = PredictionRecord(
+        date=date_str,
+        opening_pred=opening_pred['opening_pred'],
+        confidence=opening_pred['opening_confidence'],
+        strategy=opening_pred['strategy'],
+        strategy_reason=opening_pred['strategy_reason'],
+        long_score=scores['long'],
+        short_score=scores['short'],
+        env_score=env_score,
+        conclusion=conclusion
+    )
+    
+    file_path = save_prediction(record)
+    main_logger = get_main_logger()
+    main_logger.info(f"预测记录已保存: {file_path}")
+
+
+def generate_report(data: Dict, scores: Dict, sectors: Dict, date_str: str, 
+                    opening_pred: Dict, review_section: str = "", 
+                    adaptive_weights: Any = None) -> Tuple[str, str]:
     """生成Markdown格式报告"""
     report = ReportGenerator(date_str)
     report.add_header()
     
+    if review_section:
+        report.lines.append(review_section)
+        report.lines.append("\n---\n")
+    
     _add_opening_section(report, opening_pred)
-    _add_scores_section(report, scores)
+    _add_scores_section(report, scores, adaptive_weights)
     _add_margin_section(report, data)
     _add_futures_section(report, data)
     _add_industry_section(report, data)
@@ -519,6 +594,10 @@ def generate_report(data: Dict, scores: Dict, sectors: Dict, date_str: str, open
     _add_limitup_section(report, data)
     _add_sectors_section(report, sectors)
     _add_external_section(report, data)
+    
+    if adaptive_weights:
+        report.lines.append("\n---\n")
+        report.lines.append(format_adaptive_weights_report(adaptive_weights))
     
     report_str = report.build()
     file_name = save_report_to_file(report_str, date_str)
@@ -537,9 +616,14 @@ def _add_opening_section(report: ReportGenerator, opening_pred: Dict):
     )
 
 
-def _add_scores_section(report: ReportGenerator, scores: Dict):
+def _add_scores_section(report: ReportGenerator, scores: Dict, adaptive_weights: Any = None):
     report.add_section("📈 多空分数汇总", [])
-    report.add_table(["方向", "分数"], [["多方", f"**{scores['long']:.1f}**"], ["空方", f"**{scores['short']:.1f}**"]], "center")
+    
+    if adaptive_weights:
+        report.lines.append(f"*使用自适应权重计算*")
+        report.lines.append("")
+    
+    report.add_table(["方向", "分数"], [["多方", f"**{scores['long']:.2f}**"], ["空方", f"**{scores['short']:.2f}**"]], "center")
     
     if scores['long'] >= Config.Scoring.STRONG_RATIO * scores['short']:
         conclusion = "🟢 **多方占优**"
@@ -827,7 +911,7 @@ def send_feishu_notification(report: str, date_str: str) -> bool:
         return False
 
 
-def main():
+def main(run_opt: bool = False):
     init_directories()
     
     main_logger = get_main_logger()
@@ -838,17 +922,57 @@ def main():
     main_logger.info(f"北京时间: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')}")
     main_logger.info("=" * 60)
     
+    if run_opt or should_run_optimization():
+        main_logger.info("检测到需要运行参数优化...")
+        try:
+            opt_result = run_optimization(days=200)
+            if opt_result:
+                main_logger.info(f"参数优化完成，改进: {opt_result.improvement:+.2f}")
+        except Exception as e:
+            main_logger.warning(f"参数优化失败: {e}")
+    
     try:
         date_str = get_trade_date()
         print(f"分析日期: {date_str}")
         
         data = fetch_all_data(date_str)
-        scores = calculate_scores(data)
+        scores, adaptive_weights = calculate_scores(data)
         sectors = analyze_sectors(data)
         opening_pred = predict_market_opening(scores, data)
         
-        report, file_name = generate_report(data, scores, sectors, date_str, opening_pred)
+        review_section = ""
+        prev_trade_date = get_previous_trade_date(date_str)
+        if prev_trade_date:
+            main_logger.info(f"开始复盘验证: 预测日期={prev_trade_date}, 实际日期={date_str}")
+            review_result = perform_review(prev_trade_date, date_str)
+            if review_result:
+                stats = get_review_history_stats(days=7)
+                review_section = format_review_report(review_result, stats)
+                main_logger.info(f"复盘验证完成: 综合评分={review_result.overall_score}")
+                
+                prev_pred = load_prediction(prev_trade_date)
+                if prev_pred:
+                    prev_data = {
+                        "margin": {"delta": 1 if prev_pred.long_score > prev_pred.short_score else -1},
+                        "if_main": {"signal": "多" if prev_pred.long_score > prev_pred.short_score else "空"},
+                        "im_main": {"signal": "多" if prev_pred.long_score > prev_pred.short_score else "空"},
+                        "lhb": {"total_net": 1 if prev_pred.long_score > prev_pred.short_score else -1},
+                        "limitup": {"env_score": prev_pred.env_score},
+                        "external": {"sh_index": {"pct_change": 0}}
+                    }
+                    actual = review_result.details.get("actual")
+                    if actual:
+                        from src.review_demo import ActualPerformance
+                        if isinstance(actual, dict):
+                            actual_perf = ActualPerformance(**actual)
+                        else:
+                            actual_perf = actual
+                        update_metric_history_from_review(prev_trade_date, actual_perf, prev_data)
+        
+        report, file_name = generate_report(data, scores, sectors, date_str, opening_pred, review_section, adaptive_weights)
         print(report)
+        
+        save_current_prediction(date_str, scores, opening_pred, data)
         
         send_feishu_notification(report, date_str)
         
@@ -867,4 +991,18 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description="市场情绪分析")
+    parser.add_argument("--optimize", "-o", action="store_true", help="强制运行参数优化")
+    parser.add_argument("--fetch-history", "-f", type=int, default=0, help="获取指定天数的历史数据")
+    parser.add_argument("--night-mode", "-n", action="store_true", help="夜间慢速模式（适合大量数据获取）")
+    args = parser.parse_args()
+    
+    if args.fetch_history > 0:
+        from src.data_cache import fetch_all_historical_data, fetch_history_nightly
+        if args.night_mode:
+            fetch_history_nightly(days=args.fetch_history)
+        else:
+            fetch_all_historical_data(days=args.fetch_history)
+    else:
+        main(run_opt=args.optimize)

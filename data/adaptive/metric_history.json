@@ -1,0 +1,128 @@
+[
+  {
+    "date": "20260227",
+    "metric": "margin",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "if_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "im_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "lhb",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "limitup",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "external",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "margin",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "if_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "im_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "lhb",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "limitup",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260227",
+    "metric": "external",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "margin",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "if_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "im_main",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "lhb",
+    "prediction": "多",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "limitup",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  },
+  {
+    "date": "20260302",
+    "metric": "external",
+    "prediction": "中性",
+    "actual_result": "收盘+0.47%",
+    "is_correct": true
+  }
+]

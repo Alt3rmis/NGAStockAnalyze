@@ -1,0 +1,11 @@
+{
+  "date": "20260225",
+  "opening_pred": "高开",
+  "confidence": "高",
+  "strategy": "做黄线",
+  "strategy_reason": "中证1000+沪深300双多，小盘题材活跃",
+  "long_score": 3.1,
+  "short_score": 1.0,
+  "env_score": 0,
+  "conclusion": "多方占优"
+}

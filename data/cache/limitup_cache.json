@@ -1,0 +1,3802 @@
+{
+  "20251222": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251223": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251224": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251225": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251226": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251229": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251230": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251231": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260105": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260106": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260107": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260108": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260109": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260112": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260113": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260114": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260115": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260116": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260119": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260120": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260121": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260122": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260123": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260126": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260127": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260128": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260129": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260130": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260202": {
+    "total_zt": 36,
+    "max_lb": 3,
+    "lb_dist": {
+      "1": 26,
+      "2": 7,
+      "3": 3
+    },
+    "industry_top": {
+      "电网设备": 12,
+      "文娱用品": 3,
+      "照明设备": 2,
+      "一般零售": 2,
+      "白酒Ⅱ": 2,
+      "汽车零部": 2,
+      "影视院线": 1,
+      "化学制品": 1,
+      "服装家纺": 1,
+      "通信设备": 1
+    },
+    "fetch_time": "2026-03-02T23:00:54.938696"
+  },
+  "20260203": {
+    "total_zt": 69,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 59,
+      "2": 5,
+      "4": 3,
+      "3": 2
+    },
+    "industry_top": {
+      "光伏设备": 8,
+      "电网设备": 5,
+      "化学制品": 5,
+      "通用设备": 4,
+      "专用设备": 3,
+      "汽车零部": 3,
+      "房地产开": 2,
+      "电力": 2,
+      "军工电子": 2,
+      "自动化设": 2
+    },
+    "fetch_time": "2026-03-02T23:00:57.957811"
+  },
+  "20260204": {
+    "total_zt": 68,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 56,
+      "2": 8,
+      "3": 2,
+      "4": 2
+    },
+    "industry_top": {
+      "光伏设备": 10,
+      "煤炭开采": 8,
+      "焦炭Ⅱ": 6,
+      "电网设备": 5,
+      "通用设备": 4,
+      "汽车零部": 4,
+      "房地产开": 4,
+      "专业工程": 2,
+      "化学制品": 2,
+      "一般零售": 2
+    },
+    "fetch_time": "2026-03-02T23:01:07.291219"
+  },
+  "20260205": {
+    "total_zt": 44,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 34,
+      "2": 8,
+      "3": 1,
+      "4": 1
+    },
+    "industry_top": {
+      "汽车零部": 3,
+      "广告营销": 3,
+      "包装印刷": 3,
+      "一般零售": 3,
+      "纺织制造": 2,
+      "影视院线": 2,
+      "焦炭Ⅱ": 1,
+      "水泥": 1,
+      "化学原料": 1,
+      "自动化设": 1
+    },
+    "fetch_time": "2026-03-02T23:01:09.570624"
+  },
+  "20260206": {
+    "total_zt": 55,
+    "max_lb": 3,
+    "lb_dist": {
+      "1": 47,
+      "3": 4,
+      "2": 4
+    },
+    "industry_top": {
+      "化学制品": 5,
+      "电网设备": 3,
+      "电池": 3,
+      "通用设备": 3,
+      "自动化设": 3,
+      "汽车零部": 2,
+      "包装印刷": 2,
+      "中药Ⅱ": 2,
+      "专用设备": 2,
+      "电力": 2
+    },
+    "fetch_time": "2026-03-02T23:01:11.830072"
+  },
+  "20260209": {
+    "total_zt": 83,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 69,
+      "2": 10,
+      "4": 3,
+      "3": 1
+    },
+    "industry_top": {
+      "化学制品": 6,
+      "影视院线": 5,
+      "通用设备": 5,
+      "光伏设备": 5,
+      "专业工程": 5,
+      "广告营销": 3,
+      "电池": 3,
+      "数字媒体": 3,
+      "电网设备": 3,
+      "汽车零部": 2
+    },
+    "fetch_time": "2026-03-02T23:01:14.447138"
+  },
+  "20260210": {
+    "total_zt": 60,
+    "max_lb": 3,
+    "lb_dist": {
+      "1": 39,
+      "2": 20,
+      "3": 1
+    },
+    "industry_top": {
+      "影视院线": 11,
+      "数字媒体": 6,
+      "化学制品": 4,
+      "出版": 4,
+      "IT服务Ⅱ": 3,
+      "广告营销": 2,
+      "通信设备": 2,
+      "汽车零部": 2,
+      "包装印刷": 2,
+      "黑色家电": 1
+    },
+    "fetch_time": "2026-03-02T23:01:16.343175"
+  },
+  "20260211": {
+    "total_zt": 51,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 40,
+      "3": 7,
+      "2": 3,
+      "4": 1
+    },
+    "industry_top": {
+      "玻璃玻纤": 5,
+      "化学制品": 4,
+      "专用设备": 4,
+      "小金属": 4,
+      "化学原料": 3,
+      "IT服务Ⅱ": 2,
+      "电力": 2,
+      "专业工程": 2,
+      "农化制品": 2,
+      "包装印刷": 2
+    },
+    "fetch_time": "2026-03-02T23:01:19.162068"
+  },
+  "20260212": {
+    "total_zt": 60,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 43,
+      "2": 12,
+      "4": 4,
+      "3": 1
+    },
+    "industry_top": {
+      "通用设备": 9,
+      "IT服务Ⅱ": 5,
+      "电力": 4,
+      "电网设备": 4,
+      "专用设备": 3,
+      "汽车零部": 3,
+      "其他电源": 3,
+      "玻璃玻纤": 3,
+      "小金属": 3,
+      "通信设备": 2
+    },
+    "fetch_time": "2026-03-02T23:01:21.774839"
+  },
+  "20260213": {
+    "total_zt": 32,
+    "max_lb": 5,
+    "lb_dist": {
+      "1": 27,
+      "3": 3,
+      "5": 1,
+      "2": 1
+    },
+    "industry_top": {
+      "汽车零部": 3,
+      "数字媒体": 2,
+      "电网设备": 2,
+      "通用设备": 2,
+      "消费电子": 2,
+      "专业工程": 2,
+      "航空装备": 2,
+      "电力": 1,
+      "农化制品": 1,
+      "通信服务": 1
+    },
+    "fetch_time": "2026-03-02T23:01:24.485430"
+  },
+  "20260224": {
+    "total_zt": 92,
+    "max_lb": 4,
+    "lb_dist": {
+      "1": 85,
+      "2": 4,
+      "4": 2,
+      "3": 1
+    },
+    "industry_top": {
+      "农化制品": 11,
+      "油服工程": 10,
+      "化学原料": 6,
+      "电网设备": 5,
+      "通用设备": 5,
+      "专业工程": 4,
+      "玻璃玻纤": 4,
+      "通信设备": 4,
+      "电力": 3,
+      "航运港口": 3
+    },
+    "fetch_time": "2026-03-02T23:01:26.917184"
+  },
+  "20260225": {
+    "total_zt": 75,
+    "max_lb": 5,
+    "lb_dist": {
+      "1": 57,
+      "2": 14,
+      "3": 2,
+      "4": 1,
+      "5": 1
+    },
+    "industry_top": {
+      "农化制品": 8,
+      "小金属": 7,
+      "化学制品": 4,
+      "专业工程": 4,
+      "汽车零部": 3,
+      "专用设备": 3,
+      "工业金属": 3,
+      "半导体": 3,
+      "房地产开": 2,
+      "电池": 2
+    },
+    "fetch_time": "2026-03-02T23:01:28.912389"
+  },
+  "20260226": {
+    "total_zt": 61,
+    "max_lb": 6,
+    "lb_dist": {
+      "1": 52,
+      "2": 5,
+      "3": 2,
+      "6": 1,
+      "4": 1
+    },
+    "industry_top": {
+      "通用设备": 7,
+      "元件": 5,
+      "环境治理": 4,
+      "电力": 4,
+      "通信设备": 3,
+      "电网设备": 3,
+      "汽车零部": 3,
+      "农化制品": 2,
+      "自动化设": 2,
+      "小金属": 2
+    },
+    "fetch_time": "2026-03-02T23:01:38.016321"
+  },
+  "20260227": {
+    "total_zt": 75,
+    "max_lb": 7,
+    "lb_dist": {
+      "1": 65,
+      "2": 5,
+      "3": 3,
+      "4": 1,
+      "7": 1
+    },
+    "industry_top": {
+      "小金属": 12,
+      "电力": 9,
+      "电网设备": 5,
+      "通用设备": 4,
+      "软件开发": 4,
+      "农化制品": 3,
+      "环境治理": 2,
+      "IT服务Ⅱ": 2,
+      "光伏设备": 2,
+      "消费电子": 2
+    },
+    "fetch_time": "2026-03-02T23:01:40.163748"
+  },
+  "20230914": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230915": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230918": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230919": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230920": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230921": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230922": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230925": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230926": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230927": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20230928": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231009": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231010": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231011": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231012": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231013": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231016": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231017": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231018": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231019": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231020": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231023": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231024": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231025": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231026": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231027": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231030": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231031": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231101": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231102": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231103": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231106": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231107": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231108": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231109": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231110": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231113": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231114": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231115": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231116": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231117": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231120": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231121": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231122": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231123": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231124": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231127": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231128": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231129": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231130": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231201": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231204": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231205": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231206": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231207": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231208": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231211": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231212": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231213": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231214": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231215": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231218": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231219": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231220": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231221": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231222": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231225": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231226": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231227": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231228": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20231229": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240102": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240103": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240104": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240105": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240108": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240109": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240110": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240111": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240112": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240115": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240116": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240117": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240118": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240119": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240122": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240123": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240124": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240125": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240126": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240129": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240130": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240131": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240201": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240202": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240205": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240206": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240207": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240208": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240219": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240220": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240221": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240222": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240223": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240226": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240227": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240228": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240229": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240301": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240304": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240305": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240306": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240307": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240308": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240311": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240312": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240313": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240314": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240315": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240318": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240319": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240320": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240321": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240322": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240325": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240326": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240327": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240328": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240329": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240401": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240402": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240403": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240408": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240409": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240410": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240411": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240412": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240415": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240416": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240417": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240418": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240419": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240422": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240423": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240424": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240425": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240426": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240429": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240430": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240506": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240507": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240508": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240509": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240510": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240513": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240514": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240515": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240516": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240517": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240520": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240521": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240522": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240523": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240524": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240527": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240528": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240529": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240530": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240531": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240603": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240604": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240605": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240606": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240607": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240611": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240612": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240613": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240614": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240617": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240618": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240619": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240620": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240621": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240624": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240625": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240626": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240627": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240628": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240701": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240702": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240703": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240704": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240705": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240708": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240709": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240710": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240711": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240712": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240715": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240716": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240717": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240718": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240719": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240722": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240723": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240724": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240725": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240726": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240729": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240730": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240731": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240801": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240802": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240805": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240806": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240807": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240808": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240809": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240812": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240813": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240814": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240815": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240816": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240819": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240820": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240821": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240822": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240823": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240826": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240827": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240828": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240829": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240830": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240902": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240903": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240904": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240905": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240906": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240909": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240910": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240911": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240912": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240913": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240918": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240919": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240920": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240923": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240924": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240925": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240926": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240927": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20240930": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241008": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241009": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241010": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241011": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241014": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241015": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241016": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241017": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241018": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241021": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241022": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241023": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241024": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241025": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241028": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241029": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241030": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241031": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241101": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241104": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241105": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241106": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241107": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241108": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241111": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241112": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241113": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241114": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241115": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241118": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241119": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241120": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241121": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241122": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241125": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241126": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241127": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241128": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241129": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241202": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241203": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241204": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241205": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241206": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241209": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241210": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241211": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241212": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241213": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241216": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241217": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241218": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241219": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241220": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241223": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241224": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241225": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241226": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241227": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241230": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20241231": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250102": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250103": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250106": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250107": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250108": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250109": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250110": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250113": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250114": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250115": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250116": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250117": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250120": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250121": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250122": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250123": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250124": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250127": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250205": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250206": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250207": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250210": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250211": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250212": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250213": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250214": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250217": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250218": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250219": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250220": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250221": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250224": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250225": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250226": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250227": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250228": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250303": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250304": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250305": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250306": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250307": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250310": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250311": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250312": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250313": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250314": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250317": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250318": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250319": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250320": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250321": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250324": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250325": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250326": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250327": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250328": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250331": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250401": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250402": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250403": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250407": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250408": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250409": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250410": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250411": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250414": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250415": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250416": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250417": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250418": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250421": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250422": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250423": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250424": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250425": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250428": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250429": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250430": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250506": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250507": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250508": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250509": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250512": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250513": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250514": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250515": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250516": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250519": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250520": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250521": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250522": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250523": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250526": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250527": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250528": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250529": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250530": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250603": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250604": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250605": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250606": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250609": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250610": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250611": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250612": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250613": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250616": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250617": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250618": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250619": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250620": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250623": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250624": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250625": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250626": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250627": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250630": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250701": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250702": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250703": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250704": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250707": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250708": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250709": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250710": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250711": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250714": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250715": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250716": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250717": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250718": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250721": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250722": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250723": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250724": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250725": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250728": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250729": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250730": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250731": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250801": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250804": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250805": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250806": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250807": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250808": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250811": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250812": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250813": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250814": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250815": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250818": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250819": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250820": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250821": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250822": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250825": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250826": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250827": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250828": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250829": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250901": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250902": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250903": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250904": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250905": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250908": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250909": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250910": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250911": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250912": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250915": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250916": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250917": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250918": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250919": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250922": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250923": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250924": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250925": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250926": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250929": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20250930": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251009": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251010": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251013": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251014": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251015": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251016": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251017": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251020": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251021": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251022": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251023": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251024": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251027": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251028": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251029": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251030": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251031": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251103": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251104": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251105": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251106": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251107": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251110": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251111": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251112": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251113": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251114": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251117": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251118": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251119": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251120": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251121": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251124": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251125": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251126": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251127": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251128": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251201": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251202": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251203": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251204": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251205": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251208": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251209": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251210": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251211": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251212": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251215": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251216": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251217": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251218": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20251219": {
+    "total_zt": 0,
+    "max_lb": 0,
+    "lb_dist": {},
+    "industry_top": {}
+  },
+  "20260302": {
+    "total_zt": 88,
+    "max_lb": 3,
+    "lb_dist": {
+      "1": 68,
+      "2": 18,
+      "3": 2
+    },
+    "industry_top": {
+      "油服工程": 14,
+      "专用设备": 8,
+      "炼化及贸": 7,
+      "化学原料": 6,
+      "贵金属": 6,
+      "航运港口": 4,
+      "小金属": 4,
+      "电网设备": 3,
+      "军工电子": 3,
+      "油气开采": 3
+    },
+    "fetch_time": "2026-03-03T00:18:38.615303"
+  }
+}
