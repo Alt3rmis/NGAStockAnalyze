@@ -242,8 +242,23 @@ install_scheduler() {
     
     cp "${PROJECT_DIR}/deploy/market-sentiment-scheduler.service" /etc/systemd/system/
     
+    if [ -f "${PROJECT_DIR}/deploy/market-sentiment-report.timer" ]; then
+        cp "${PROJECT_DIR}/deploy/market-sentiment-report.timer" /etc/systemd/system/
+        log_info "Timer 文件已更新"
+    fi
+    
+    if [ -f "${PROJECT_DIR}/deploy/market-sentiment-report.service" ]; then
+        cp "${PROJECT_DIR}/deploy/market-sentiment-report.service" /etc/systemd/system/
+        log_info "Report service 文件已更新"
+    fi
+    
     systemctl daemon-reload
     systemctl enable "${SCHEDULER_SERVICE_NAME}"
+    
+    if systemctl list-unit-files | grep -q "market-sentiment-report.timer"; then
+        systemctl enable market-sentiment-report.timer
+        log_info "Timer 已启用"
+    fi
     
     log_info "调度器服务安装完成"
     log_info "使用 'systemctl start ${SCHEDULER_SERVICE_NAME}' 启动服务"
@@ -340,6 +355,7 @@ case "${1}" in
         echo ""
         echo "调度器服务命令:"
         echo "  scheduler-install - 安装调度器服务"
+        echo "  scheduler-update  - 更新调度器配置(包括timer)"
         echo "  scheduler-start   - 启动调度器服务"
         echo "  scheduler-stop    - 停止调度器服务"
         echo "  scheduler-status  - 查看调度器状态"

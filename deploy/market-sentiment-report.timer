@@ -1,9 +1,9 @@
 [Unit]
-Description=Daily Market Sentiment Report Timer (20:00 Beijing Time)
+Description=Daily Market Sentiment Report Timer (23:30 Beijing Time)
 Documentation=https://github.com/your-repo/ReThink
 
 [Timer]
-OnCalendar=*-*-* 20:00:00 Asia/Shanghai
+OnCalendar=*-*-* 23:30:00 Asia/Shanghai
 AccuracySec=1min
 Persistent=true
 RandomizedDelaySec=0

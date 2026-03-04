@@ -244,6 +244,7 @@ jobs:
             
             sleep 5
             ./deploy/deploy.sh status
+            ./deploy/deploy.sh scheduler-update
             
             echo "=== Production Deployment Complete ==="
 
